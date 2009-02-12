@@ -1,0 +1,140 @@
+<h1>Editing aluno</h1>
+
+<% form_for(@aluno) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nivel %><br />
+    <%= f.text_field :nivel %>
+  </p>
+  <p>
+    <%= f.label :periodo %><br />
+    <%= f.text_field :periodo %>
+  </p>
+  <p>
+    <%= f.label :alimentacao %><br />
+    <%= f.text_field :alimentacao %>
+  </p>
+  <p>
+    <%= f.label :ra %><br />
+    <%= f.text_field :ra %>
+  </p>
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :data_nascimento %><br />
+    <%= f.date_select :data_nascimento %>
+  </p>
+  <p>
+    <%= f.label :rg %><br />
+    <%= f.text_field :rg %>
+  </p>
+  <p>
+    <%= f.label :sexo %><br />
+    <%= f.text_field :sexo %>
+  </p>
+  <p>
+    <%= f.label :endereco %><br />
+    <%= f.text_field :endereco %>
+  </p>
+  <p>
+    <%= f.label :numero %><br />
+    <%= f.text_field :numero %>
+  </p>
+  <p>
+    <%= f.label :complemento %><br />
+    <%= f.text_field :complemento %>
+  </p>
+  <p>
+    <%= f.label :bairro %><br />
+    <%= f.text_field :bairro %>
+  </p>
+  <p>
+    <%= f.label :cep %><br />
+    <%= f.text_field :cep %>
+  </p>
+  <p>
+    <%= f.label :telefone %><br />
+    <%= f.text_area :telefone %>
+  </p>
+  <p>
+    <%= f.label :nome_pai %><br />
+    <%= f.text_field :nome_pai %>
+  </p>
+  <p>
+    <%= f.label :data_nascimento_pai %><br />
+    <%= f.date_select :data_nascimento_pai %>
+  </p>
+  <p>
+    <%= f.label :cic_pai %><br />
+    <%= f.text_field :cic_pai %>
+  </p>
+  <p>
+    <%= f.label :rg_pai %><br />
+    <%= f.text_field :rg_pai %>
+  </p>
+  <p>
+    <%= f.label :local_trabalho_pai %><br />
+    <%= f.text_field :local_trabalho_pai %>
+  </p>
+  <p>
+    <%= f.label :telefone_trabalho_pai %><br />
+    <%= f.text_field :telefone_trabalho_pai %>
+  </p>
+  <p>
+    <%= f.label :nome_mae %><br />
+    <%= f.text_field :nome_mae %>
+  </p>
+  <p>
+    <%= f.label :data_nascimento_mae %><br />
+    <%= f.date_select :data_nascimento_mae %>
+  </p>
+  <p>
+    <%= f.label :cic_mae %><br />
+    <%= f.text_field :cic_mae %>
+  </p>
+  <p>
+    <%= f.label :rg_mae %><br />
+    <%= f.text_field :rg_mae %>
+  </p>
+  <p>
+    <%= f.label :local_trabalho_mae %><br />
+    <%= f.text_field :local_trabalho_mae %>
+  </p>
+  <p>
+    <%= f.label :telefone_trabalho_mae %><br />
+    <%= f.text_field :telefone_trabalho_mae %>
+  </p>
+  <p>
+    <%= f.label :nome_pediatra %><br />
+    <%= f.text_field :nome_pediatra %>
+  </p>
+  <p>
+    <%= f.label :telefone_pediatra %><br />
+    <%= f.text_field :telefone_pediatra %>
+  </p>
+  <p>
+    <%= f.label :alergias %><br />
+    <%= f.text_area :alergias %>
+  </p>
+  <p>
+    <%= f.label :tratamento_medico %><br />
+    <%= f.text_area :tratamento_medico %>
+  </p>
+  <p>
+    <%= f.label :pessoas_autorizadas %><br />
+    <%= f.text_area :pessoas_autorizadas %>
+  </p>
+  <p>
+    <%= f.label :observacao %><br />
+    <%= f.text_area :observacao %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @aluno %> |
+<%= link_to 'Back', alunos_path %>
