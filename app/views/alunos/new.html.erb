@@ -9,13 +9,12 @@
   </p>
   <p>
     <%= f.label :periodo %><br />
-    <% Aluno::PERIODO.each do |v| %>
-      <%= f.radio_button("periodo", v) + v.to_s %>
-    <% end %>
+    <%= f.radio_button :periodo, 'Integral', :checked => true %>Integral
+    <%= f.radio_button :periodo, 'Parcial' %>Parcial
   </p>
   <p>
     <%= f.label :alimentacao %><br />
-    <%= f.text_field :alimentacao %>
+    <%= f.select :alimentacao, Aluno::ALIMENTACAO %>
   </p>
   <p>
     <%= f.label :ra %><br />
@@ -35,9 +34,8 @@
   </p>
   <p>
     <%= f.label :sexo %><br />
-    <% Aluno::SEXO.each do |v| %>
-      <%= f.radio_button("sexo", v) + v.to_s %>
-    <% end %>
+    <%= f.radio_button :sexo, 'Masculino', :checked => true %> Masculino
+    <%= f.radio_button :sexo, 'Feminino' %>Feminino
   </p>
   <p>
     <%= f.label :endereco %><br />
