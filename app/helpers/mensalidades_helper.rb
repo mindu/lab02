@@ -1,0 +1,2 @@
+module MensalidadesHelper
+end

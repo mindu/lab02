@@ -8,7 +8,12 @@
   <%= stylesheet_link_tag 'scaffold' %>
 </head>
 <body>
-
+<p>
+<%= link_to 'Inicio', inicio_path %> |
+<%= link_to 'Alunos', alunos_path %> |
+<%= link_to 'Mensalidades', mensalidades_path %> |
+<%= link_to 'Alimentacao Valores', alimentacao_valores_path %>
+</p>
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield  %>

@@ -1,0 +1,24 @@
+<h1>Listing mensalidades</h1>
+
+<table>
+  <tr>
+    <th>Valor</th>
+    <th>Data vigor</th>
+    <th>Periodo</th>
+  </tr>
+
+<% for mensalidade in @mensalidades %>
+  <tr>
+    <td><%=h mensalidade.valor.real %></td>
+    <td><%=h mensalidade.data_vigor.strftime("%d/%m/%Y") %></td>
+    <td><%=h mensalidade.periodo.periodo %></td>
+    <td><%= link_to 'Show', mensalidade %></td>
+    <td><%= link_to 'Edit', edit_mensalidade_path(mensalidade) %></td>
+    <td><%= link_to 'Destroy', mensalidade, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New mensalidade', new_mensalidade_path %>

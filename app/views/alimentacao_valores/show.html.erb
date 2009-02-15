@@ -1,0 +1,18 @@
+<p>
+  <b>Alimentacao:</b>
+  <%=h @alimentacao_valor.alimentacao.alimentacao %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%=h @alimentacao_valor.valor %>
+</p>
+
+<p>
+  <b>Data vigor:</b>
+  <%=h @alimentacao_valor.data_vigor.strftime("%d/%m/%Y") %>
+</p>
+
+
+<%= link_to 'Edit', edit_alimentacao_valor_path(@alimentacao_valor) %> |
+<%= link_to 'Back', alimentacao_valores_path %>

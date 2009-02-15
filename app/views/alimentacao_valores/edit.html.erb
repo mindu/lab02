@@ -1,0 +1,26 @@
+<h1>Editing alimentacao_valor</h1>
+
+<% form_for(@alimentacao_valor) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :alimentacao %><br />
+    <% @alimentacoes.each do |t| %>
+      <%= f.radio_button :alimentacao_id, t.id, :checked => t.id == @alimentacao_valor.alimentacao_id ? true : false %> <%= t.alimentacao %>
+    <% end %>
+  </p>
+  <p>
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </p>
+  <p>
+    <%= f.label :data_vigor %><br />
+    <%= f.date_select :data_vigor, :order => [:day, :month, :year] %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @alimentacao_valor %> |
+<%= link_to 'Back', alimentacao_valores_path %>

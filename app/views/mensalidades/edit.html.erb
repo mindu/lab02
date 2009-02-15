@@ -1,0 +1,26 @@
+<h1>Editing mensalidade</h1>
+
+<% form_for(@mensalidade) do |f| %>
+  <%= f.error_messages %>
+
+ <p>
+    <%= f.label :periodo %><br />
+    <% @periodos.each do |t| %>
+      <%= f.radio_button :periodo_id, t.id, :checked => t.id == @mensalidade.periodo_id ? true : false %> <%= t.periodo %>
+    <% end %>
+  </p>
+  <p>
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </p>
+  <p>
+    <%= f.label :data_vigor %><br />
+    <%= f.date_select :data_vigor, :order => [:day, :month, :year] %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @mensalidade %> |
+<%= link_to 'Back', mensalidades_path %>

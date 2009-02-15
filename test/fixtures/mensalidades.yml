@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  valor: 9.99
+  data_vigor: 2009-02-13
+  periodo: MyString
+
+two:
+  valor: 9.99
+  data_vigor: 2009-02-13
+  periodo: MyString

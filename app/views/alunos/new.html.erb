@@ -9,12 +9,15 @@
   </p>
   <p>
     <%= f.label :periodo %><br />
-    <%= f.radio_button :periodo, 'Integral', :checked => true %>Integral
-    <%= f.radio_button :periodo, 'Parcial' %>Parcial
+    <% @periodos.each do |t| %>
+      <%= f.radio_button :periodo_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.periodo %>
+    <% end %>
   </p>
   <p>
     <%= f.label :alimentacao %><br />
-    <%= f.select :alimentacao, Aluno::ALIMENTACAO %>
+    <% @alimentacoes.each do |t| %>
+      <%= f.radio_button :alimentacao_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.alimentacao %>
+    <% end %>
   </p>
   <p>
     <%= f.label :ra %><br />
@@ -26,7 +29,7 @@
   </p>
   <p>
     <%= f.label :data_nascimento %><br />
-    <%= f.date_select :data_nascimento %>
+    <%= f.date_select :data_nascimento, :end_year => 1990, :order => [:day, :month, :year ] %>
   </p>
   <p>
     <%= f.label :rg %><br />
@@ -67,7 +70,7 @@
   </p>
   <p>
     <%= f.label :data_nascimento_pai %><br />
-    <%= f.date_select :data_nascimento_pai %>
+    <%= f.date_select :data_nascimento_pai, :end_year => 1920, :order => [:day, :month, :year ] %>
   </p>
   <p>
     <%= f.label :cic_pai %><br />
@@ -91,7 +94,7 @@
   </p>
   <p>
     <%= f.label :data_nascimento_mae %><br />
-    <%= f.date_select :data_nascimento_mae %>
+    <%= f.date_select :data_nascimento_mae, :end_year => 1920, :order => [:day, :month, :year ] %>
   </p>
   <p>
     <%= f.label :cic_mae %><br />

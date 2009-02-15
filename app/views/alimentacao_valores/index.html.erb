@@ -1,0 +1,24 @@
+<h1>Listing alimentacao_valores</h1>
+
+<table>
+  <tr>
+    <th>Alimentacao</th>
+    <th>Valor</th>
+    <th>Data vigor</th>
+  </tr>
+
+<% for alimentacao_valor in @alimentacao_valores %>
+  <tr>
+    <td><%=h alimentacao_valor.alimentacao.alimentacao %></td>
+    <td><%=h alimentacao_valor.valor.real %></td>
+    <td><%=h alimentacao_valor.data_vigor.strftime("%d/%m/%Y") %></td>
+    <td><%= link_to 'Show', alimentacao_valor %></td>
+    <td><%= link_to 'Edit', edit_alimentacao_valor_path(alimentacao_valor) %></td>
+    <td><%= link_to 'Destroy', alimentacao_valor, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New alimentacao_valor', new_alimentacao_valor_path %>

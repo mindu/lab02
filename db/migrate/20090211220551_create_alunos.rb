@@ -2,8 +2,8 @@ class CreateAlunos < ActiveRecord::Migration
   def self.up
     create_table :alunos do |t|
       t.string :nivel
-      t.string :periodo
-      t.string :alimentacao
+      t.references :periodo
+      t.references :alimentacao
       t.integer :ra
       t.string :nome
       t.date :data_nascimento

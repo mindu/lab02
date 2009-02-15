@@ -9,12 +9,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090211220551) do
+ActiveRecord::Schema.define(:version => 20090214214753) do
+
+  create_table "alimentacao_valores", :force => true do |t|
+    t.integer  "alimentacao_id"
+    t.decimal  "valor",          :precision => 14, :scale => 2
+    t.date     "data_vigor"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "alimentacoes", :force => true do |t|
+    t.string   "alimentacao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "alunos", :force => true do |t|
     t.string   "nivel"
-    t.string   "periodo"
-    t.string   "alimentacao"
+    t.integer  "periodo_id"
+    t.integer  "alimentacao_id"
     t.integer  "ra"
     t.string   "nome"
     t.date     "data_nascimento"
@@ -44,6 +58,20 @@ ActiveRecord::Schema.define(:version => 20090211220551) do
     t.text     "tratamento_medico"
     t.text     "pessoas_autorizadas"
     t.text     "observacao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "mensalidades", :force => true do |t|
+    t.decimal  "valor",      :precision => 14, :scale => 2
+    t.date     "data_vigor"
+    t.integer  "periodo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "periodos", :force => true do |t|
+    t.string   "periodo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

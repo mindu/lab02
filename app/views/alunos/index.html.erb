@@ -1,6 +1,6 @@
-<h1>Listing alunos</h1>
+<h1>Listing alunos teste</h1>
 
-<table>
+<table border="1">
   <tr>
     <th>Nivel</th>
     <th>Periodo</th>
@@ -39,8 +39,8 @@
 <% for aluno in @alunos %>
   <tr>
     <td><%=h aluno.nivel %></td>
-    <td><%=h aluno.periodo %></td>
-    <td><%=h aluno.alimentacao %></td>
+    <td><%=h aluno.periodo.periodo %></td>
+    <td><%=h aluno.alimentacao.alimentacao %></td>
     <td><%=h aluno.ra %></td>
     <td><%=h aluno.nome %></td>
     <td><%=h aluno.data_nascimento %></td>
@@ -73,6 +73,9 @@
     <td><%= link_to 'Show', aluno %></td>
     <td><%= link_to 'Edit', edit_aluno_path(aluno) %></td>
     <td><%= link_to 'Destroy', aluno, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <tr>
+    <td colspan="35">Mensalidade: R$ <%=h aluno.periodo.mensalidades[0].valor.real %> - Refeição: R$  <%=h aluno.alimentacao.alimentacao_valores[0].valor.real %></td>
   </tr>
 <% end %>
 </table>

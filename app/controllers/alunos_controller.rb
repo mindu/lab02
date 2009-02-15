@@ -26,6 +26,8 @@ class AlunosController < ApplicationController
   # GET /alunos/new.xml
   def new
     @aluno = Aluno.new
+    @periodos = Periodo.find(:all)
+    @alimentacoes = Alimentacao.find(:all)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +38,8 @@ class AlunosController < ApplicationController
   # GET /alunos/1/edit
   def edit
     @aluno = Aluno.find(params[:id])
+    @periodos = Periodo.find(:all)
+    @alimentacoes = Alimentacao.find(:all)
   end
 
   # POST /alunos

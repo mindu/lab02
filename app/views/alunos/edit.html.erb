@@ -5,15 +5,19 @@
 
   <p>
     <%= f.label :nivel %><br />
-    <%= f.text_field :nivel %>
+    <%= f.select :nivel, Aluno::NIVEL %>
   </p>
   <p>
-    <%= f.label :periodo %><br />
-    <%= f.text_field :periodo %>
+    <%= f.label :periodo %> <br />
+    <% @periodos.each do |t| %>
+      <%= f.radio_button :periodo_id, t.id, :checked => t.id == @aluno.periodo_id ? true : false %> <%= t.periodo %>
+    <% end %>
   </p>
   <p>
     <%= f.label :alimentacao %><br />
-    <%= f.text_field :alimentacao %>
+    <% @alimentacoes.each do |t| %>
+      <%= f.radio_button :alimentacao_id, t.id, :checked => t.id == @aluno.alimentacao_id ? true : false %> <%= t.alimentacao %>
+    <% end %>
   </p>
   <p>
     <%= f.label :ra %><br />
@@ -25,7 +29,7 @@
   </p>
   <p>
     <%= f.label :data_nascimento %><br />
-    <%= f.date_select :data_nascimento %>
+    <%= f.date_select :data_nascimento, :end_year => 1990, :order => [:day, :month, :year ] %>
   </p>
   <p>
     <%= f.label :rg %><br />
@@ -33,7 +37,8 @@
   </p>
   <p>
     <%= f.label :sexo %><br />
-    <%= f.text_field :sexo %>
+    <%= f.radio_button :sexo, 'Masculino', :checked => true %> Masculino
+    <%= f.radio_button :sexo, 'Feminino' %>Feminino
   </p>
   <p>
     <%= f.label :endereco %><br />
@@ -65,7 +70,7 @@
   </p>
   <p>
     <%= f.label :data_nascimento_pai %><br />
-    <%= f.date_select :data_nascimento_pai %>
+    <%= f.date_select :data_nascimento_pai, :end_year => 1920, :order => [:day, :month, :year ] %>
   </p>
   <p>
     <%= f.label :cic_pai %><br />
@@ -89,7 +94,7 @@
   </p>
   <p>
     <%= f.label :data_nascimento_mae %><br />
-    <%= f.date_select :data_nascimento_mae %>
+    <%= f.date_select :data_nascimento_mae, :end_year => 1920, :order => [:day, :month, :year ] %>
   </p>
   <p>
     <%= f.label :cic_mae %><br />

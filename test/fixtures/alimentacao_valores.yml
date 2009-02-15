@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  alimentacao: 
+  valor: 9.99
+  data_vigor: 2009-02-14
+
+two:
+  alimentacao: 
+  valor: 9.99
+  data_vigor: 2009-02-14
