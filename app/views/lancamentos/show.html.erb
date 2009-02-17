@@ -1,0 +1,23 @@
+<p>
+  <b>Aluno:</b>
+  <%=h @lancamento.aluno %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%=h @lancamento.descricao %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%=h @lancamento.valor %>
+</p>
+
+<p>
+  <b>Data:</b>
+  <%=h @lancamento.data %>
+</p>
+
+
+<%= link_to 'Edit', edit_lancamento_path(@lancamento) %> |
+<%= link_to 'Back', lancamentos_path %>

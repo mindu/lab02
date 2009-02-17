@@ -1,0 +1,32 @@
+<h1>Listing lancamentos</h1>
+|
+<% for nivel in Aluno::NIVEL do  %>
+  <%= link_to nivel, :controller => "lancamentos", :action => "index", :nivel => nivel %> |
+<% end %>
+
+<br/><br/>
+
+<table>
+  <tr>
+    <th>Aluno</th>
+    <th>Descricao</th>
+    <th>Valor</th>
+    <th>Data</th>
+  </tr>
+
+<% for lancamento in @lancamentos %>
+  <tr>
+    <td><%=h lancamento.aluno %></td>
+    <td><%=h lancamento.descricao %></td>
+    <td><%=h lancamento.valor %></td>
+    <td><%=h lancamento.data %></td>
+    <td><%= link_to 'Show', lancamento %></td>
+    <td><%= link_to 'Edit', edit_lancamento_path(lancamento) %></td>
+    <td><%= link_to 'Destroy', lancamento, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New lancamento', new_lancamento_path %>

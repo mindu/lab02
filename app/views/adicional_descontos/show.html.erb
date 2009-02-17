@@ -1,0 +1,28 @@
+<p>
+  <b>Adicional desconto tipo:</b>
+  <%=h @adicional_desconto.adicional_desconto_tipo.tipo %>
+</p>
+
+<p>
+  <b>Valor:</b>
+  <%=h @adicional_desconto.valor.real %>
+</p>
+
+<p>
+  <b>Aluno:</b>
+  <%=h @adicional_desconto.aluno.nome %>
+</p>
+
+<p>
+  <b>Data vigor:</b>
+  <%=h @adicional_desconto.data_vigor.strftime("%d/%m/%Y") %>
+</p>
+
+<p>
+  <b>Descricao:</b>
+  <%=h @adicional_desconto.descricao %>
+</p>
+
+
+<%= link_to 'Edit', edit_adicional_desconto_path(@adicional_desconto) %> |
+<%= link_to 'Back', adicional_descontos_path %>

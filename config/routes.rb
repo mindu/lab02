@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :lancamentos
+
+  map.resources :adicional_descontos
+
   map.resources :alimentacao_valores
 
   map.resources :mensalidades

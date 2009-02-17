@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  adicional_desconto_tipo: 
+  valor: 9.99
+  aluno: 
+  data_vigor: 2009-02-15
+  descricao: MyText
+
+two:
+  adicional_desconto_tipo: 
+  valor: 9.99
+  aluno: 
+  data_vigor: 2009-02-15
+  descricao: MyText

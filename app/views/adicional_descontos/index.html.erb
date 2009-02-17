@@ -1,0 +1,28 @@
+<h1>Listing adicional_descontos</h1>
+
+<table>
+  <tr>
+    <th>Adicional desconto tipo</th>
+    <th>Valor</th>
+    <th>Aluno</th>
+    <th>Data vigor</th>
+    <th>Descricao</th>
+  </tr>
+
+<% for adicional_desconto in @adicional_descontos %>
+  <tr>
+    <td><%=h adicional_desconto.adicional_desconto_tipo.tipo %></td>
+    <td>R$ <%=h adicional_desconto.valor.real %></td>
+    <td><%=h adicional_desconto.aluno.nome %></td>
+    <td><%=h adicional_desconto.data_vigor.strftime("%d/%m/%Y") %></td>
+    <td><%=h adicional_desconto.descricao %></td>
+    <td><%= link_to 'Show', adicional_desconto %></td>
+    <td><%= link_to 'Edit', edit_adicional_desconto_path(adicional_desconto) %></td>
+    <td><%= link_to 'Destroy', adicional_desconto, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New adicional_desconto', new_adicional_desconto_path %>

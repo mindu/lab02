@@ -1,81 +1,24 @@
-<h1>Listing alunos teste</h1>
+<h1>Listing alunos</h1>
 
 <table border="1">
   <tr>
-    <th>Nivel</th>
-    <th>Periodo</th>
-    <th>Alimentacao</th>
     <th>Ra</th>
     <th>Nome</th>
-    <th>Data nascimento</th>
-    <th>Rg</th>
-    <th>Sexo</th>
-    <th>Endereco</th>
-    <th>Numero</th>
-    <th>Complemento</th>
-    <th>Bairro</th>
-    <th>Cep</th>
-    <th>Telefone</th>
-    <th>Nome pai</th>
-    <th>Data nascimento pai</th>
-    <th>Cic pai</th>
-    <th>Rg pai</th>
-    <th>Local trabalho pai</th>
-    <th>Telefone trabalho pai</th>
-    <th>Nome mae</th>
-    <th>Data nascimento mae</th>
-    <th>Cic mae</th>
-    <th>Rg mae</th>
-    <th>Local trabalho mae</th>
-    <th>Telefone trabalho mae</th>
-    <th>Nome pediatra</th>
-    <th>Telefone pediatra</th>
-    <th>Alergias</th>
-    <th>Tratamento medico</th>
-    <th>Pessoas autorizadas</th>
-    <th>Observacao</th>
+    <th>Nivel</th>
+    <th colspan="3">&nbsp;</th>
   </tr>
 
 <% for aluno in @alunos %>
   <tr>
-    <td><%=h aluno.nivel %></td>
-    <td><%=h aluno.periodo.periodo %></td>
-    <td><%=h aluno.alimentacao.alimentacao %></td>
     <td><%=h aluno.ra %></td>
     <td><%=h aluno.nome %></td>
-    <td><%=h aluno.data_nascimento %></td>
-    <td><%=h aluno.rg %></td>
-    <td><%=h aluno.sexo %></td>
-    <td><%=h aluno.endereco %></td>
-    <td><%=h aluno.numero %></td>
-    <td><%=h aluno.complemento %></td>
-    <td><%=h aluno.bairro %></td>
-    <td><%=h aluno.cep %></td>
-    <td><%=h aluno.telefone %></td>
-    <td><%=h aluno.nome_pai %></td>
-    <td><%=h aluno.data_nascimento_pai %></td>
-    <td><%=h aluno.cic_pai %></td>
-    <td><%=h aluno.rg_pai %></td>
-    <td><%=h aluno.local_trabalho_pai %></td>
-    <td><%=h aluno.telefone_trabalho_pai %></td>
-    <td><%=h aluno.nome_mae %></td>
-    <td><%=h aluno.data_nascimento_mae %></td>
-    <td><%=h aluno.cic_mae %></td>
-    <td><%=h aluno.rg_mae %></td>
-    <td><%=h aluno.local_trabalho_mae %></td>
-    <td><%=h aluno.telefone_trabalho_mae %></td>
-    <td><%=h aluno.nome_pediatra %></td>
-    <td><%=h aluno.telefone_pediatra %></td>
-    <td><%=h aluno.alergias %></td>
-    <td><%=h aluno.tratamento_medico %></td>
-    <td><%=h aluno.pessoas_autorizadas %></td>
-    <td><%=h aluno.observacao %></td>
+    <td><%=h aluno.nivel %></td>
     <td><%= link_to 'Show', aluno %></td>
     <td><%= link_to 'Edit', edit_aluno_path(aluno) %></td>
     <td><%= link_to 'Destroy', aluno, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
   <tr>
-    <td colspan="35">Mensalidade: R$ <%=h aluno.periodo.mensalidades[0].valor.real %> - Refeição: R$  <%=h aluno.alimentacao.alimentacao_valores[0].valor.real %></td>
+    <td colspan="6">Mensalidade: R$ <%= aluno.periodo.mensalidades[0].valor.real %> (<%= aluno.periodo.periodo %>) - Refeição: R$  <%= aluno.alimentacao.alimentacao_valores[0].valor.real %> (<%= aluno.alimentacao.alimentacao %>)</td>
   </tr>
 <% end %>
 </table>

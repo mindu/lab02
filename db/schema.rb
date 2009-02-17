@@ -9,7 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090214214753) do
+ActiveRecord::Schema.define(:version => 20090216223421) do
+
+  create_table "adicional_desconto_tipos", :force => true do |t|
+    t.string   "tipo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "adicional_descontos", :force => true do |t|
+    t.integer  "adicional_desconto_tipo_id"
+    t.decimal  "valor",                      :precision => 14, :scale => 2
+    t.integer  "aluno_id"
+    t.date     "data_vigor"
+    t.text     "descricao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "alimentacao_valores", :force => true do |t|
     t.integer  "alimentacao_id"
@@ -58,6 +74,15 @@ ActiveRecord::Schema.define(:version => 20090214214753) do
     t.text     "tratamento_medico"
     t.text     "pessoas_autorizadas"
     t.text     "observacao"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lancamentos", :force => true do |t|
+    t.integer  "aluno_id"
+    t.string   "descricao"
+    t.decimal  "valor",      :precision => 14, :scale => 2
+    t.date     "data"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

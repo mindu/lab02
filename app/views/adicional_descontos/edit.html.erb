@@ -1,0 +1,34 @@
+<h1>Editing adicional_desconto</h1>
+
+<% form_for(@adicional_desconto) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :adicional_desconto_tipo %><br />
+    <% @adicional_desconto_tipos.each do |t| %>
+      <%= f.radio_button :adicional_desconto_tipo_id, t.id, :checked => t.id == @adicional_desconto.adicional_desconto_tipo_id ? true : false %> <%= t.tipo %>
+    <% end %>
+  </p>
+  <p>
+    <%= f.label :aluno %><br />
+    <%= f.text_field :aluno_id %>
+  </p>
+  <p>
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </p>
+  <p>
+    <%= f.label :data_vigor %><br />
+    <%= f.date_select :data_vigor, :order => [:day, :month, :year] %>
+  </p>
+  <p>
+    <%= f.label :descricao %><br />
+    <%= f.text_area :descricao %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @adicional_desconto %> |
+<%= link_to 'Back', adicional_descontos_path %>

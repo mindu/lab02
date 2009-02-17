@@ -5,5 +5,6 @@ class Aluno < ActiveRecord::Base
 
   belongs_to :periodo
   belongs_to :alimentacao
-
+  has_many :adicional_descontos, :order => 'data_vigor DESC', :limit => 1
+  has_many :lancamentos
 end

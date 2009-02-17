@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  aluno: 
+  descricao: MyString
+  valor: 9.99
+  data: 2009-02-16
+
+two:
+  aluno: 
+  descricao: MyString
+  valor: 9.99
+  data: 2009-02-16

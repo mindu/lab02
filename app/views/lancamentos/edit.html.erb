@@ -1,0 +1,28 @@
+<h1>Editing lancamento</h1>
+
+<% form_for(@lancamento) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :aluno %><br />
+    <%= f.text_field :aluno %>
+  </p>
+  <p>
+    <%= f.label :descricao %><br />
+    <%= f.text_field :descricao %>
+  </p>
+  <p>
+    <%= f.label :valor %><br />
+    <%= f.text_field :valor %>
+  </p>
+  <p>
+    <%= f.label :data %><br />
+    <%= f.date_select :data %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @lancamento %> |
+<%= link_to 'Back', lancamentos_path %>
