@@ -1,6 +1,6 @@
 <p>
   <b>Aluno:</b>
-  <%=h @lancamento.aluno %>
+  <%=h @lancamento.aluno.nome %>
 </p>
 
 <p>
@@ -10,12 +10,12 @@
 
 <p>
   <b>Valor:</b>
-  <%=h @lancamento.valor %>
+  <%=h @lancamento.valor.real %>
 </p>
 
 <p>
   <b>Data:</b>
-  <%=h @lancamento.data %>
+  <%=h @lancamento.data.strftime("%d/%m/%Y") %>
 </p>
 
 

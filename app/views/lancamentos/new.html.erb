@@ -5,7 +5,7 @@
 
   <p>
     <%= f.label :aluno %><br />
-    <%= f.text_field :aluno %>
+    <%= f.text_field :aluno_id %>
   </p>
   <p>
     <%= f.label :descricao %><br />
@@ -17,7 +17,7 @@
   </p>
   <p>
     <%= f.label :data %><br />
-    <%= f.date_select :data %>
+    <%= f.date_select :data, :order => [:month, :year] %>
   </p>
   <p>
     <%= f.submit "Create" %>

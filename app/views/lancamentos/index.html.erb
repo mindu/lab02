@@ -6,6 +6,11 @@
 
 <br/><br/>
 
+<% form_tag lancamentos_path, :method => "get" do %>
+  <%= date_select(:data, nil, :order => [:month, :year]) %>
+    <%= submit_tag 'filtrar', :name => nil %>
+<% end %>
+
 <table>
   <tr>
     <th>Aluno</th>
@@ -16,10 +21,10 @@
 
 <% for lancamento in @lancamentos %>
   <tr>
-    <td><%=h lancamento.aluno %></td>
+    <td><%=h lancamento.aluno.nome %></td>
     <td><%=h lancamento.descricao %></td>
-    <td><%=h lancamento.valor %></td>
-    <td><%=h lancamento.data %></td>
+    <td><%=h lancamento.valor.real %></td>
+    <td><%=h lancamento.data.strftime("%d/%m/%Y") %></td>
     <td><%= link_to 'Show', lancamento %></td>
     <td><%= link_to 'Edit', edit_lancamento_path(lancamento) %></td>
     <td><%= link_to 'Destroy', lancamento, :confirm => 'Are you sure?', :method => :delete %></td>

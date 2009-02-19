@@ -1,15 +1,10 @@
 class LancamentosController < ApplicationController
   # GET /lancamentos
   # GET /lancamentos.xml
+
   def index
 
-    nivel = params[:nivel]
-
-    if nivel
-      @lancamentos = Lancamento.find(:all, :joins => :aluno, :conditions => ["alunos.nivel =?", nivel])
-    else
-      @lancamentos = []
-    end
+    list(params[:data])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -90,7 +85,17 @@ class LancamentosController < ApplicationController
     end
   end
 
-  def list
+def convert_date(obj)
+  return Date.new(obj['(1i)'].to_i,obj['(2i)'].to_i,obj['(3i)'].to_i)
+end
 
+  def list(data)
+
+    if data
+     data = convert_date(data)
+     @lancamentos = Lancamento.find(:all, :conditions => ["data between ? and ?", data.beginning_of_month, data.end_of_month])
+    else
+      @lancamentos = Lancamento.find(:all, :conditions => ["data between ? and ?", Date.current.beginning_of_month, Date.current.end_of_month])
+    end
   end
 end
