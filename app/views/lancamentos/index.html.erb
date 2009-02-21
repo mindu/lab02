@@ -1,30 +1,24 @@
 <h1>Listing lancamentos</h1>
-|
-<% for nivel in Aluno::NIVEL do  %>
-  <%= link_to nivel, :controller => "lancamentos", :action => "index", :nivel => nivel %> |
-<% end %>
-
-<br/><br/>
 
 <% form_tag lancamentos_path, :method => "get" do %>
-  <%= date_select(:data, nil, :order => [:month, :year]) %>
+  <%= date_select(:filtro_data, nil, :order => [:month, :year], :default => @data) %>
     <%= submit_tag 'filtrar', :name => nil %>
 <% end %>
 
 <table>
   <tr>
+    <th>Data</th>
+    <th>Valor</th>
     <th>Aluno</th>
     <th>Descricao</th>
-    <th>Valor</th>
-    <th>Data</th>
   </tr>
 
 <% for lancamento in @lancamentos %>
   <tr>
+    <td><%=h lancamento.data.strftime("%d/%m/%Y") %></td>
+    <td><%=h lancamento.valor.real %></td>
     <td><%=h lancamento.aluno.nome %></td>
     <td><%=h lancamento.descricao %></td>
-    <td><%=h lancamento.valor.real %></td>
-    <td><%=h lancamento.data.strftime("%d/%m/%Y") %></td>
     <td><%= link_to 'Show', lancamento %></td>
     <td><%= link_to 'Edit', edit_lancamento_path(lancamento) %></td>
     <td><%= link_to 'Destroy', lancamento, :confirm => 'Are you sure?', :method => :delete %></td>

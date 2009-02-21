@@ -4,11 +4,18 @@ class LancamentosController < ApplicationController
 
   def index
 
-    list(params[:data])
+    filtro_data = params[:filtro_data]
+
+    if filtro_data
+       @data = convert_date(filtro_data)
+    else
+      @data = Date.current
+    end
+
+    list(@data)
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @lancamentos }
+      format.html
     end
   end
 
@@ -92,7 +99,6 @@ end
   def list(data)
 
     if data
-     data = convert_date(data)
      @lancamentos = Lancamento.find(:all, :conditions => ["data between ? and ?", data.beginning_of_month, data.end_of_month])
     else
       @lancamentos = Lancamento.find(:all, :conditions => ["data between ? and ?", Date.current.beginning_of_month, Date.current.end_of_month])
