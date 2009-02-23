@@ -1,0 +1,2 @@
+page['aluno_nome'].value = @aluno.nome
+page['lancamento_aluno_id'].value = @aluno.id

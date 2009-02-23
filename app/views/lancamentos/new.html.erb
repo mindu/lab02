@@ -4,8 +4,9 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :aluno %><br />
-    <%= f.text_field :aluno_id, :onchage => 'window.alert(\'teste\')' %>
+    <%= f.label 'RA' %><br />
+    <%= text_field :aluno, :ra, :onchange => remote_function(:url => { :action => :find_by_ra },  :with => "'ra='+value") %>
+    <%= f.hidden_field :aluno_id %><%= text_field :aluno, :nome, :disabled => true %>
   </p>
   <p>
     <%= f.label :descricao %><br />

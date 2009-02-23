@@ -19,6 +19,16 @@ class LancamentosController < ApplicationController
     end
   end
 
+  def find_by_ra
+    @aluno = Aluno.find(:first, :conditions => ["ra = ?", params[:ra]])
+
+    if @aluno == nil
+      @aluno = Aluno.new
+    end
+
+    render :layout => false
+  end
+
   # GET /lancamentos/1
   # GET /lancamentos/1.xml
   def show
