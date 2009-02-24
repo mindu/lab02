@@ -54,6 +54,7 @@ class LancamentosController < ApplicationController
   # GET /lancamentos/1/edit
   def edit
     @lancamento = Lancamento.find(params[:id])
+    @aluno = Aluno.find(@lancamento.aluno_id)
   end
 
   # POST /lancamentos
