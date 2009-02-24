@@ -7,4 +7,8 @@ class Aluno < ActiveRecord::Base
   belongs_to :alimentacao
   has_many :adicional_descontos, :order => 'data_vigor DESC', :limit => 1
   has_many :lancamentos
+  named_scope :lancamentos_por_periodo, lambda { |periodo|
+      { :conditions => ["data between ? and ?", periodo.beginning_of_month, periodo.end_of_month]}
+    }
+
 end

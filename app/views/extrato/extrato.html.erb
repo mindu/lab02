@@ -1,0 +1,22 @@
+<table border="1">
+  <tr>
+    <th>Ra</th>
+    <th>Nome</th>
+    <th>Nivel</th>
+    <th colspan="3">&nbsp;</th>
+  </tr>
+
+<% for aluno in @alunos %>
+  <tr>
+    <td><%=h aluno.ra %></td>
+    <td><%=h aluno.nome %></td>
+    <td><%=h aluno.nivel %></td>
+    <td><%= link_to 'Show', aluno %></td>
+    <td><%= link_to 'Edit', edit_aluno_path(aluno) %></td>
+    <td><%= link_to 'Destroy', aluno, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <tr>
+    <td colspan="6">Mensalidade: R$ <%= aluno.periodo.mensalidades[0].valor.real %> (<%= aluno.periodo.periodo %>) - Refeição: R$  <%= aluno.alimentacao.alimentacao_valores[0].valor.real %> (<%= aluno.alimentacao.alimentacao %>)</td>
+  </tr>
+<% end %>
+</table>
