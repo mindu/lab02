@@ -1,22 +1,66 @@
-<table border="1">
-  <tr>
-    <th>Ra</th>
-    <th>Nome</th>
-    <th>Nivel</th>
-    <th colspan="3">&nbsp;</th>
-  </tr>
+<% for extrato in @extratos %>
 
-<% for aluno in @alunos %>
-  <tr>
-    <td><%=h aluno.ra %></td>
-    <td><%=h aluno.nome %></td>
-    <td><%=h aluno.nivel %></td>
-    <td><%= link_to 'Show', aluno %></td>
-    <td><%= link_to 'Edit', edit_aluno_path(aluno) %></td>
-    <td><%= link_to 'Destroy', aluno, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-  <tr>
-    <td colspan="6">Mensalidade: R$ <%= aluno.periodo.mensalidades[0].valor.real %> (<%= aluno.periodo.periodo %>) - Refeição: R$  <%= aluno.alimentacao.alimentacao_valores[0].valor.real %> (<%= aluno.alimentacao.alimentacao %>)</td>
-  </tr>
-<% end %>
+<table border="1" align="center" width="500">
+        <tr>
+                <td>
+                        <table width="100%" border="0">
+                                <tr>
+                                        <td width="50%" height="50" valign="middle" align="center"> logo aqui </td>
+                                        <td valign="middle" align="center"><b>Extrato Mensal para Pagamento</b></td>
+                                </tr>
+                        </table>
+                </td>
+        </tr>
+        <tr>
+                <td align="center">
+                        <b>Multa de 10% após a data de vencimento</b>
+                </td>
+        </tr>
+        <tr>
+                <td>
+                        <table width="100%" border="0">
+                                <tr>
+                                        <td width="70" align="right">RA:</td>
+                                        <td><b><%= extrato.ra %></b></td>
+                                </tr>
+                                <tr>
+                                        <td width="70" align="right">nome:</td>
+                                        <td><b><%= extrato.nome %></b></td>
+                                </tr>
+                                <tr align="right">
+                                        <td colspan="2"><b>vencimento: <%= extrato.vencimento.strftime("%d/%m/%Y") %></b></td>
+                                </tr>
+                        </table>
+                </td>
+        </tr>
+        <tr>
+                <td>
+                        <table width="100%" border="0">
+                                <tr>
+                                        <td width="50%" align="left">mensalidade</td>
+                                        <td align="right"><%= extrato.mensalidade.real %></td>
+                                </tr>
+                                <tr>
+                                        <td width="50%" align="left">refeição</td>
+                                        <td align="right"><%= extrato.refeicao.real %></td>
+                                </tr>
+                                <tr>
+                                        <td width="50%" align="left">taxa</td>
+                                        <td align="right"><%= extrato.taxa.real %></td>
+                                </tr>
+                                <tr align="right">
+                                        <td colspan="2">-------------</td>
+                                </tr>
+                                <tr align="right">
+                                        <td colspan="2">Total a pagar: &nbsp;&nbsp;&nbsp; <b>R$ <%= extrato.total.real %></b></td>
+                                </tr>
+                        </table>
+                </td>
+        </tr>
+        <tr>
+                <td>Obs taxa: <%= extrato.taxa_desc %> </td>
+        </tr>
 </table>
+<br>
+
+<% end %>

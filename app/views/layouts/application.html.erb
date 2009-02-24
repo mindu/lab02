@@ -5,22 +5,29 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Alunos: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'application' %>
   <%= javascript_include_tag :defaults %>
 </head>
 <body>
-<p>
-<%= link_to 'Inicio', inicio_path %> |
-<%= link_to 'Alunos', alunos_path %> |
-<%= link_to 'Mensalidades', mensalidades_path %> |
-<%= link_to 'Alimentacao Valores', alimentacao_valores_path %> |
-<%= link_to 'Adicional / Desconto', adicional_descontos_path %> |
-<%= link_to 'Lançamentos', lancamentos_path %> |
-<%= link_to 'Extrato', extrato_path %>
-</p>
-<p style="color: green"><%= flash[:notice] %></p>
 
-<%= yield  %>
-
+    <div id="header">
+        <%= link_to 'Inicio', inicio_path %> |
+        <%= link_to 'Alunos', alunos_path %> |
+        <%= link_to 'Mensalidades', mensalidades_path %> |
+        <%= link_to 'Alimentacao Valores', alimentacao_valores_path %> |
+        <%= link_to 'Adicional / Desconto', adicional_descontos_path %> |
+        <%= link_to 'Lançamentos', lancamentos_path %> |
+        <%= link_to 'Extrato', extrato_path %>
+    </div>
+    <div id="content">
+                <p style="color: green"><%= flash[:notice] %></p>
+                <%= yield  %>
+    </div>
+    <div class="clear"></div>
+    <div id="footer">
+                <div id="footer_bottom">
+                        <span id="rodape" class="rodape">Escola Estrelinha - Rua Pedro Angela, 455 - Vila Pinheiro - Botucatu / SP  - <span id="rodape_bold" class="texto_bold">14 - 3815 - 8023 / 14 - 9784 - 1250</span></span>
+                </div>
+    </div>
 </body>
 </html>
