@@ -1,144 +1,257 @@
-<h1>New aluno</h1>
+<h1>Novo Aluno</h1>
 
 <% form_for(@aluno) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :nivel %><br />
-    <%= f.select :nivel, Aluno::NIVEL %>
-  </p>
-  <p>
-    <%= f.label :periodo %><br />
-    <% @periodos.each do |t| %>
-      <%= f.radio_button :periodo_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.periodo %>
-    <% end %>
-  </p>
-  <p>
-    <%= f.label :alimentacao %><br />
-    <% @alimentacoes.each do |t| %>
-      <%= f.radio_button :alimentacao_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.alimentacao %>
-    <% end %>
-  </p>
-  <p>
-    <%= f.label :ra %><br />
-    <%= f.text_field :ra %>
-  </p>
-  <p>
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
-  </p>
-  <p>
-    <%= f.label :data_nascimento %><br />
-    <%= f.date_select :data_nascimento, :end_year => 1990, :order => [:day, :month, :year ] %>
-  </p>
-  <p>
-    <%= f.label :rg %><br />
-    <%= f.text_field :rg %>
-  </p>
-  <p>
-    <%= f.label :sexo %><br />
-    <%= f.radio_button :sexo, 'Masculino', :checked => true %> Masculino
-    <%= f.radio_button :sexo, 'Feminino' %>Feminino
-  </p>
-  <p>
-    <%= f.label :endereco %><br />
-    <%= f.text_field :endereco %>
-  </p>
-  <p>
-    <%= f.label :numero %><br />
-    <%= f.text_field :numero %>
-  </p>
-  <p>
-    <%= f.label :complemento %><br />
-    <%= f.text_field :complemento %>
-  </p>
-  <p>
-    <%= f.label :bairro %><br />
-    <%= f.text_field :bairro %>
-  </p>
-  <p>
-    <%= f.label :cep %><br />
-    <%= f.text_field :cep %>
-  </p>
-  <p>
-    <%= f.label :telefone %><br />
-    <%= f.text_area :telefone %>
-  </p>
-  <p>
-    <%= f.label :nome_pai %><br />
-    <%= f.text_field :nome_pai %>
-  </p>
-  <p>
-    <%= f.label :data_nascimento_pai %><br />
-    <%= f.date_select :data_nascimento_pai, :end_year => 1920, :order => [:day, :month, :year ] %>
-  </p>
-  <p>
-    <%= f.label :cic_pai %><br />
-    <%= f.text_field :cic_pai %>
-  </p>
-  <p>
-    <%= f.label :rg_pai %><br />
-    <%= f.text_field :rg_pai %>
-  </p>
-  <p>
-    <%= f.label :local_trabalho_pai %><br />
-    <%= f.text_field :local_trabalho_pai %>
-  </p>
-  <p>
-    <%= f.label :telefone_trabalho_pai %><br />
-    <%= f.text_field :telefone_trabalho_pai %>
-  </p>
-  <p>
-    <%= f.label :nome_mae %><br />
-    <%= f.text_field :nome_mae %>
-  </p>
-  <p>
-    <%= f.label :data_nascimento_mae %><br />
-    <%= f.date_select :data_nascimento_mae, :end_year => 1920, :order => [:day, :month, :year ] %>
-  </p>
-  <p>
-    <%= f.label :cic_mae %><br />
-    <%= f.text_field :cic_mae %>
-  </p>
-  <p>
-    <%= f.label :rg_mae %><br />
-    <%= f.text_field :rg_mae %>
-  </p>
-  <p>
-    <%= f.label :local_trabalho_mae %><br />
-    <%= f.text_field :local_trabalho_mae %>
-  </p>
-  <p>
-    <%= f.label :telefone_trabalho_mae %><br />
-    <%= f.text_field :telefone_trabalho_mae %>
-  </p>
-  <p>
-    <%= f.label :nome_pediatra %><br />
-    <%= f.text_field :nome_pediatra %>
-  </p>
-  <p>
-    <%= f.label :telefone_pediatra %><br />
-    <%= f.text_field :telefone_pediatra %>
-  </p>
-  <p>
-    <%= f.label :alergias %><br />
-    <%= f.text_area :alergias %>
-  </p>
-  <p>
-    <%= f.label :tratamento_medico %><br />
-    <%= f.text_area :tratamento_medico %>
-  </p>
-  <p>
-    <%= f.label :pessoas_autorizadas %><br />
-    <%= f.text_area :pessoas_autorizadas %>
-  </p>
-  <p>
-    <%= f.label :observacao %><br />
-    <%= f.text_area :observacao %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
+<table border="0" cellpadding="2" cellspacing="0" width="700" align="center">
+  <tr>
+    <td align="right">
+      <p>
+        <%= link_to 'Voltar', alunos_path %>
+      </p>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td colspan="3">
+     <span class="tit_form">Dados Escolar</span>
+    </td>
+  </tr
+  <tr>
+    <td>
+        <%= f.label 'Nível' %><br />
+        <%= f.select :nivel, Aluno::NIVEL %>
+    </td>
+    <td>
+        <%= f.label 'Período' %><br />
+        <% @periodos.each do |t| %>
+          <%= f.radio_button :periodo_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.periodo %>
+        <% end %>
+    </td>
+    <td>
+        <%= f.label 'Alimentação' %><br />
+        <% @alimentacoes.each do |t| %>
+          <%= f.radio_button :alimentacao_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.alimentacao %>
+        <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="3">
+        <%= f.label 'RA' %><br />
+        <%= f.text_field :ra, :size => 5 %>
+    </td>
+  </tr>
+</table>
+<br/>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td colspan="2">
+     <span class="tit_form">Dados do Aluno</span>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= f.label :nome %><br />
+      <%= f.text_field :nome, :size => 45 %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= f.label :rg %><br />
+      <%= f.text_field :rg, :size => 15 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :data_nascimento %><br />
+      <%= f.date_select :data_nascimento, :end_year => 1990, :order => [:day, :month, :year ] %>
+    </td>
+    <td>
+      <%= f.label :sexo %><br />
+      <%= f.radio_button :sexo, 'Masculino', :checked => true %> Masculino
+      <%= f.radio_button :sexo, 'Feminino' %>Feminino
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :endereco %><br />
+      <%= f.text_field :endereco, :size => 45 %>
+    </td>
+    <td>
+      <%= f.label :numero %><br />
+      <%= f.text_field :numero, :size => 10 %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= f.label :complemento %><br />
+      <%= f.text_field :complemento, :size => 25 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :bairro %><br />
+      <%= f.text_field :bairro %>
+    </td>
+    <td>
+      <%= f.label :cep %><br />
+      <%= f.text_field :cep %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <%= f.label :telefone %><br />
+      <%= f.text_area :telefone, :rows => 5, :cols => 30 %>
+    </td>
+  </tr>
+</table>
+<br/>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td>
+     <span class="tit_form">Dados do Pai</span>
+        <table border="0" width="100%">
+          <tr>
+            <td colspan="2">
+              <%= f.label 'Nome' %><br />
+              <%= f.text_field :nome_pai, :size => 45 %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <%= f.label 'Data Nascimento'%><br />
+              <%= f.date_select :data_nascimento_pai, :end_year => 1920, :order => [:day, :month, :year ] %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.label 'CIC' %><br />
+              <%= f.text_field :cic_pai, :size => 15 %>
+            </td>
+            <td>
+              <%= f.label 'RG' %><br />
+              <%= f.text_field :rg_pai, :size => 15 %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <%= f.label 'Local Trabalho' %><br />
+              <%= f.text_field :local_trabalho_pai %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <%= f.label 'Telefone' %><br />
+              <%= f.text_field :telefone_trabalho_pai %>
+            </td>
+          </tr>
+        </table>
+    </td>
+    <td>
+        <span class="tit_form">Dados da Mãe</span>
+        <table border="0" width="100%">
+          <tr>
+            <td colspan="2">
+              <%= f.label 'Nome' %><br />
+              <%= f.text_field :nome_mae, :size => 45 %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <%= f.label 'Data Nascimento'%><br />
+              <%= f.date_select :data_nascimento_mae, :end_year => 1920, :order => [:day, :month, :year ] %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= f.label 'CIC' %><br />
+              <%= f.text_field :cic_mae, :size => 15 %>
+            </td>
+            <td>
+              <%= f.label 'RG' %><br />
+              <%= f.text_field :rg_mae, :size => 15 %>
+            </td>
+          </tr>
+         <tr>
+            <td colspan="2">
+              <%= f.label 'Local Trabalho' %><br />
+              <%= f.text_field :local_trabalho_mae %>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <%= f.label 'Telefone' %><br />
+              <%= f.text_field :telefone_trabalho_mae %>
+            </td>
+          </tr>
+        </table>
+    </td>
+  </tr>
+</table>
+<br/>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td colspan="2">
+     <span class="tit_form">Dados de Médico</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label 'Pediatra' %><br />
+      <%= f.text_field :nome_pediatra %>
+    </td>
+    <td>
+      <%= f.label 'Telefone' %><br />
+      <%= f.text_field :telefone_pediatra %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :alergias %><br />
+      <%= f.text_area :alergias, :rows => 5, :cols => 30 %>
+    </td>
+    <td>
+      <%= f.label :tratamento_medico %><br />
+      <%= f.text_area :tratamento_medico, :rows => 5, :cols => 30 %>
+    </td>
+  </tr>
+</table>
+<br/>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td colspan="2">
+     <span class="tit_form">Dados Complementares</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :pessoas_autorizadas %><br />
+      <%= f.text_area :pessoas_autorizadas, :rows => 5, :cols => 30 %>
+    </td>
+    <td>
+      <%= f.label :observacao %><br />
+      <%= f.text_area :observacao, :rows => 5, :cols => 30 %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="0" width="700" align="center">
+  <tr>
+    <td>
+      <p>
+        <%= f.submit "Salvar" %>
+      </p>
+    </td>
+  </tr>
+  <tr>
+    <td align="right">
+      <p>
+        <%= link_to 'Voltar', alunos_path %>
+      </p>
+    </td>
+  </tr>
+</table>
+
 <% end %>
 
-<%= link_to 'Back', alunos_path %>
+
