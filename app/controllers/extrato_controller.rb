@@ -7,7 +7,6 @@ class ExtratoController < ApplicationController
 
     nivel = params[:extrato][:nivel]
     vencimento = convert_date(params[:data_vencimento])
-    periodo = convert_date(params[:periodo])
 
 
     if nivel != ''
@@ -41,7 +40,7 @@ class ExtratoController < ApplicationController
       extrato.mensalidade = mensalidade
       extrato.refeicao = aluno.alimentacao.alimentacao_valores[0].valor
 
-      lancamentos = aluno.lancamentos.lancamentos_por_periodo(periodo)
+      lancamentos = aluno.lancamentos.lancamentos_por_periodo(vencimento)
 
       taxa = 0
       taxa_desc = ''
@@ -59,6 +58,8 @@ class ExtratoController < ApplicationController
       @extratos.push extrato
 
     end
+
+     render :layout => false
 
   end
   def convert_date(obj)

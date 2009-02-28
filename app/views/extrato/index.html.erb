@@ -1,17 +1,23 @@
-<% form_tag "extrato/extrato", :method => "get" do %>
+<h1>Gerar Extrato</h1>
 
-  <p>
-    <%= label 'Extrato', 'Periodo' %><br />
-    <%= date_select(:periodo, nil, :order => [:month, :year], :default => @periodo) %>
-  </p>
-  <p>
-    <%= label 'Extrato', 'Vencimento' %><br />
-    <%= date_select(:data_vencimento, nil, :order => [:day, :month, :year], :default => @data_vencimento) %>
-  </p>
-  <p>
-    <%= label 'Extrato', 'Nivel' %><br />
-    <%= select 'extrato', :nivel, Aluno::NIVEL, :prompt => 'Todos' %>
-  </p>
-    <%= submit_tag 'gerar extrato', :name => nil %>
+<% form_tag "extrato/extrato", :method => "get", :target => '_blank' do %>
+
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td>
+      <%= label 'Extrato', 'Vencimento' %>
+      <%= date_select(:data_vencimento, nil, :order => [:day, :month, :year], :default => @data_vencimento) %>
+    </td>
+    <td>
+      <%= label 'Extrato', 'Nivel' %>
+      <%= select 'extrato', :nivel, Aluno::NIVEL, :prompt => 'Todos' %>
+    </td>
+    <td>
+      <%= submit_tag 'Gerar Extrato', :name => nil %>
+    </td>
+  </tr>
+</table>
+
+<br />
 
 <% end %>
