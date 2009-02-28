@@ -1,3 +1,10 @@
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+        <%= link_to 'Voltar', alunos_path %>
+    </td>
+  </tr>
+</table>
 <table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
   <tr>
     <td colspan="2">
@@ -19,7 +26,7 @@
   <tr>
     <td>
      Data Nascimento:<br />
-     <%= @aluno.data_nascimento %>
+     <%= @aluno.data_nascimento.strftime("%d/%m/%Y") %>
     </td>
     <td>
       Sexo:<br />
@@ -67,36 +74,36 @@
         <table border="0" width="100%">
           <tr>
             <td colspan="2">
-              <%= f.label 'Nome' %><br />
-              <%= f.text_field :nome_pai, :size => 45 %>
+              Nome: <br />
+              <%= @aluno.nome_pai %>
             </td>
           </tr>
           <tr>
             <td colspan="2">
-              <%= f.label 'Data Nascimento'%><br />
-              <%= f.date_select :data_nascimento_pai, :end_year => 1920, :order => [:day, :month, :year ] %>
+              Data Nascimento:<br />
+               <%= @aluno.data_nascimento_pai.strftime("%d/%m/%Y") %>
             </td>
           </tr>
           <tr>
             <td>
-              <%= f.label 'CIC' %><br />
-              <%= f.text_field :cic_pai, :size => 15 %>
+              CIC:<br />
+              <%= @aluno.cic_pai %>
             </td>
             <td>
-              <%= f.label 'RG' %><br />
-              <%= f.text_field :rg_pai, :size => 15 %>
+              RG:<br />
+              <%= @aluno.rg_pai %>
             </td>
           </tr>
           <tr>
             <td colspan="2">
-              <%= f.label 'Local Trabalho' %><br />
-              <%= f.text_field :local_trabalho_pai %>
+              Local Trabalho:<br />
+              <%= @aluno.local_trabalho_pai %>
             </td>
           </tr>
           <tr>
             <td colspan="2">
-              <%= f.label 'Telefone' %><br />
-              <%= f.text_field :telefone_trabalho_pai %>
+              Telefone:<br />
+              <%= @aluno.telefone_trabalho_pai %>
             </td>
           </tr>
         </table>
@@ -106,36 +113,36 @@
         <table border="0" width="100%">
           <tr>
             <td colspan="2">
-              <%= f.label 'Nome' %><br />
-              <%= f.text_field :nome_mae, :size => 45 %>
+              Nome:<br />
+              <%= @aluno.nome_mae %>
             </td>
           </tr>
           <tr>
             <td colspan="2">
-              <%= f.label 'Data Nascimento'%><br />
-              <%= f.date_select :data_nascimento_mae, :end_year => 1920, :order => [:day, :month, :year ] %>
+              Data Nascimento:<br />
+               <%= @aluno.data_nascimento_mae.strftime("%d/%m/%Y") %>
             </td>
           </tr>
           <tr>
             <td>
-              <%= f.label 'CIC' %><br />
-              <%= f.text_field :cic_mae, :size => 15 %>
+              CIC:<br />
+              <%= @aluno.cic_mae %>
             </td>
             <td>
-              <%= f.label 'RG' %><br />
-              <%= f.text_field :rg_mae, :size => 15 %>
+              RG:<br />
+               <%= @aluno.rg_mae %>
             </td>
           </tr>
          <tr>
             <td colspan="2">
-              <%= f.label 'Local Trabalho' %><br />
-              <%= f.text_field :local_trabalho_mae %>
+              Local Trabalho:<br />
+              <%= @aluno.local_trabalho_mae %>
             </td>
           </tr>
           <tr>
             <td colspan="2">
-              <%= f.label 'Telefone' %><br />
-              <%= f.text_field :telefone_trabalho_mae %>
+              Telefone:<br />
+              <%= @aluno.telefone_trabalho_mae %>
             </td>
           </tr>
         </table>
@@ -151,22 +158,22 @@
   </tr>
   <tr>
     <td>
-      <%= f.label 'Pediatra' %><br />
-      <%= f.text_field :nome_pediatra %>
+      Pediatra:<br />
+      <%= @aluno.nome_pediatra %>
     </td>
     <td>
-      <%= f.label 'Telefone' %><br />
-      <%= f.text_field :telefone_pediatra %>
+      Telefone:<br />
+      <%= @aluno.telefone_pediatra %>
     </td>
   </tr>
   <tr>
     <td>
-      <%= f.label :alergias %><br />
-      <%= f.text_area :alergias, :rows => 5, :cols => 30 %>
+      Alergias:<br />
+      <%= @aluno.alergias %>
     </td>
     <td>
-      <%= f.label :tratamento_medico %><br />
-      <%= f.text_area :tratamento_medico, :rows => 5, :cols => 30 %>
+      Tratamento médico:<br />
+      <%= @aluno.tratamento_medico %>
     </td>
   </tr>
 </table>
@@ -179,192 +186,19 @@
   </tr>
   <tr>
     <td>
-      <%= f.label :pessoas_autorizadas %><br />
-      <%= f.text_area :pessoas_autorizadas, :rows => 5, :cols => 30 %>
+      Pessoas Autorizadas:<br />
+      <%= @aluno.pessoas_autorizadas %>
     </td>
     <td>
-      <%= f.label :observacao %><br />
-      <%= f.text_area :observacao, :rows => 5, :cols => 30 %>
+      Observação:<br />
+      <%= @aluno.observacao %>
     </td>
   </tr>
 </table>
-<table border="0" cellpadding="2" cellspacing="0" width="700" align="center">
-  <tr>
-    <td>
-      <p>
-        <%= f.submit "Alterar" %>
-      </p>
-    </td>
-  </tr>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
   <tr>
     <td align="right">
-      <p>
-        <%= link_to 'Detalhes', @aluno %> | <%= link_to 'Voltar', alunos_path %>
-      </p>
+        <%= link_to 'Alterar', edit_aluno_path(@aluno) %> | <%= link_to 'Voltar', alunos_path %>
     </td>
   </tr>
 </table>
-
-<p>
-  <b>Nivel:</b>
-  <%=h @aluno.nivel %>
-</p>
-
-<p>
-  <b>Periodo:</b>
-  <%=h @aluno.periodo.periodo %>
-</p>
-
-<p>
-  <b>Alimentacao:</b>
-  <%=h @aluno.alimentacao.alimentacao %>
-</p>
-
-<p>
-  <b>Ra:</b>
-  <%=h @aluno.ra %>
-</p>
-
-<p>
-  <b>Nome:</b>
-  <%=h @aluno.nome %>
-</p>
-
-<p>
-  <b>Data nascimento:</b>
-  <%=h @aluno.data_nascimento.strftime("%d/%m/%Y") %>
-</p>
-
-<p>
-  <b>Rg:</b>
-  <%=h @aluno.rg %>
-</p>
-
-<p>
-  <b>Sexo:</b>
-  <%=h @aluno.sexo %>
-</p>
-
-<p>
-  <b>Endereco:</b>
-  <%=h @aluno.endereco %>
-</p>
-
-<p>
-  <b>Numero:</b>
-  <%=h @aluno.numero %>
-</p>
-
-<p>
-  <b>Complemento:</b>
-  <%=h @aluno.complemento %>
-</p>
-
-<p>
-  <b>Bairro:</b>
-  <%=h @aluno.bairro %>
-</p>
-
-<p>
-  <b>Cep:</b>
-  <%=h @aluno.cep %>
-</p>
-
-<p>
-  <b>Telefone:</b>
-  <%=h @aluno.telefone %>
-</p>
-
-<p>
-  <b>Nome pai:</b>
-  <%=h @aluno.nome_pai %>
-</p>
-
-<p>
-  <b>Data nascimento pai:</b>
-  <%=h @aluno.data_nascimento_pai.strftime("%d/%m/%Y") %>
-</p>
-
-<p>
-  <b>Cic pai:</b>
-  <%=h @aluno.cic_pai %>
-</p>
-
-<p>
-  <b>Rg pai:</b>
-  <%=h @aluno.rg_pai %>
-</p>
-
-<p>
-  <b>Local trabalho pai:</b>
-  <%=h @aluno.local_trabalho_pai %>
-</p>
-
-<p>
-  <b>Telefone trabalho pai:</b>
-  <%=h @aluno.telefone_trabalho_pai %>
-</p>
-
-<p>
-  <b>Nome mae:</b>
-  <%=h @aluno.nome_mae %>
-</p>
-
-<p>
-  <b>Data nascimento mae:</b>
-  <%=h @aluno.data_nascimento_mae.strftime("%d/%m/%Y") %>
-</p>
-
-<p>
-  <b>Cic mae:</b>
-  <%=h @aluno.cic_mae %>
-</p>
-
-<p>
-  <b>Rg mae:</b>
-  <%=h @aluno.rg_mae %>
-</p>
-
-<p>
-  <b>Local trabalho mae:</b>
-  <%=h @aluno.local_trabalho_mae %>
-</p>
-
-<p>
-  <b>Telefone trabalho mae:</b>
-  <%=h @aluno.telefone_trabalho_mae %>
-</p>
-
-<p>
-  <b>Nome pediatra:</b>
-  <%=h @aluno.nome_pediatra %>
-</p>
-
-<p>
-  <b>Telefone pediatra:</b>
-  <%=h @aluno.telefone_pediatra %>
-</p>
-
-<p>
-  <b>Alergias:</b>
-  <%=h @aluno.alergias %>
-</p>
-
-<p>
-  <b>Tratamento medico:</b>
-  <%=h @aluno.tratamento_medico %>
-</p>
-
-<p>
-  <b>Pessoas autorizadas:</b>
-  <%=h @aluno.pessoas_autorizadas %>
-</p>
-
-<p>
-  <b>Observacao:</b>
-  <%=h @aluno.observacao %>
-</p>
-
-
-<%= link_to 'Edit', edit_aluno_path(@aluno) %> |
-<%= link_to 'Back', alunos_path %>

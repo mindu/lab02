@@ -3,12 +3,10 @@
 <% form_for(@aluno) do |f| %>
   <%= f.error_messages %>
 
-<table border="0" cellpadding="2" cellspacing="0" width="700" align="center">
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
   <tr>
     <td align="right">
-      <p>
         <%= link_to 'Voltar', alunos_path %>
-      </p>
     </td>
   </tr>
 </table>
@@ -235,19 +233,15 @@
     </td>
   </tr>
 </table>
-<table border="0" cellpadding="2" cellspacing="0" width="700" align="center">
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
   <tr>
     <td>
-      <p>
         <%= f.submit "Salvar" %>
-      </p>
     </td>
   </tr>
   <tr>
     <td align="right">
-      <p>
         <%= link_to 'Voltar', alunos_path %>
-      </p>
     </td>
   </tr>
 </table>

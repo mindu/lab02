@@ -17,7 +17,7 @@ class AlunosController < ApplicationController
     @aluno = Aluno.find(params[:id])
 
     respond_to do |format|
-      format.html :layout => false # show.html.erb
+      format.html {render :layout => true} # show.html.erb
       format.xml  { render :xml => @aluno }
     end
   end

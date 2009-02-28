@@ -1,25 +1,53 @@
-<h1>New alimentacao_valor</h1>
+<h1>Nova Alimentação / Valor</h1>
 
 <% form_for(@alimentacao_valor) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :alimentacao %><br />
-    <% @alimentacoes.each do |t| %>
-      <%= f.radio_button :alimentacao_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.alimentacao %>
-    <% end %>
-  </p>
-  <p>
-    <%= f.label :valor %><br />
-    <%= f.text_field :valor %>
-  </p>
-  <p>
-    <%= f.label :data_vigor %><br />
-    <%= f.date_select :data_vigor, :order => [:day, :month, :year] %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+        <%= link_to 'Voltar', alimentacao_valores_path %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td colspan="3">
+     <span class="tit_form">Dados da Alimentação / Valor</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :alimentacao %><br />
+      <% @alimentacoes.each do |t| %>
+        <%= f.radio_button :alimentacao_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.alimentacao %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :valor %><br />
+      <%= f.text_field :valor, :size => 10 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :data_vigor %><br />
+      <%= f.date_select :data_vigor, :order => [:day, :month, :year] %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td>
+        <%= f.submit "Salvar" %>
+    </td>
+  </tr>
+  <tr>
+    <td align="right">
+        <%= link_to 'Voltar', alimentacao_valores_path %>
+    </td>
+  </tr>
+</table>
 
-<%= link_to 'Back', alimentacao_valores_path %>
+<% end %>

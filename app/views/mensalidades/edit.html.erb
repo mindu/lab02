@@ -1,26 +1,54 @@
-<h1>Editing mensalidade</h1>
+<h1>Alterar Mensalidade</h1>
 
 <% form_for(@mensalidade) do |f| %>
   <%= f.error_messages %>
 
- <p>
-    <%= f.label :periodo %><br />
-    <% @periodos.each do |t| %>
-      <%= f.radio_button :periodo_id, t.id, :checked => t.id == @mensalidade.periodo_id ? true : false %> <%= t.periodo %>
-    <% end %>
-  </p>
-  <p>
-    <%= f.label :valor %><br />
-    <%= f.text_field :valor %>
-  </p>
-  <p>
-    <%= f.label :data_vigor %><br />
-    <%= f.date_select :data_vigor, :order => [:day, :month, :year] %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+      <%= link_to 'Detalhes', @mensalidade %> | <%= link_to 'Voltar', mensalidades_path %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td colspan="3">
+     <span class="tit_form">Dados da Mensalidade</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :periodo %><br />
+      <% @periodos.each do |t| %>
+        <%= f.radio_button :periodo_id, t.id, :checked => t.id == @mensalidade.periodo_id ? true : false %> <%= t.periodo %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :valor %><br />
+      <%= f.text_field :valor, :size => 10 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :data_vigor %><br />
+      <%= f.date_select :data_vigor, :order => [:day, :month, :year] %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td>
+        <%= f.submit "Alterar" %>
+    </td>
+  </tr>
+  <tr>
+    <td align="right">
+      <%= link_to 'Detalhes', @mensalidade %> | <%= link_to 'Voltar', mensalidades_path %>
+    </td>
+  </tr>
+</table>
+
 <% end %>
 
-<%= link_to 'Show', @mensalidade %> |
-<%= link_to 'Back', mensalidades_path %>

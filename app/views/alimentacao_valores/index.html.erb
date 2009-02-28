@@ -1,24 +1,41 @@
-<h1>Listing alimentacao_valores</h1>
+<h1>Lista de Alimentação / Valor</h1>
 
-<table>
+<table border="0" cellpadding="2" cellspacing="0" width="700" align="center">
   <tr>
-    <th>Alimentacao</th>
+    <td colspan="6" align="right"><%= link_to 'Cadastrar Nova Alimentação / Valor', new_alimentacao_valor_path %></td>
+  </tr>
+  <tr>
+    <td colspan="6">&nbsp;</td>
+  </tr>
+  <tr style="background-color: #D1DFEF">
+    <th>Data Vigor</th>
     <th>Valor</th>
-    <th>Data vigor</th>
+    <th>Alimentação</th>
+    <th colspan="3">Opções</th>
   </tr>
 
-<% for alimentacao_valor in @alimentacao_valores %>
-  <tr>
-    <td><%=h alimentacao_valor.alimentacao.alimentacao %></td>
-    <td><%=h alimentacao_valor.valor.real %></td>
-    <td><%=h alimentacao_valor.data_vigor.strftime("%d/%m/%Y") %></td>
-    <td><%= link_to 'Show', alimentacao_valor %></td>
-    <td><%= link_to 'Edit', edit_alimentacao_valor_path(alimentacao_valor) %></td>
-    <td><%= link_to 'Destroy', alimentacao_valor, :confirm => 'Are you sure?', :method => :delete %></td>
+<%
+  count = 0
+  for alimentacao_valor in @alimentacao_valores
+%>
+  <tr <%= (count % 2 == 0) ? '' : 'style="background-color:#F5F5F5"' %>>
+    <td width="20%"><%=h alimentacao_valor.data_vigor.strftime("%d/%m/%Y") %></td>
+    <td width="20%">R$ <%=h alimentacao_valor.valor.real %></td>
+    <td width="30%"><%=h  alimentacao_valor.alimentacao.alimentacao %></td>
+    <td width="10%"><%= link_to 'Detalhes', alimentacao_valor %></td>
+    <td width="10%"><%= link_to 'Alterar', edit_alimentacao_valor_path(alimentacao_valor) %></td>
+    <td width="10%"><%= link_to 'Excluir', alimentacao_valor, :confirm => 'Tem certeza que deseja realmente excluir ?', :method => :delete, :style => 'color: red;' %></td>
   </tr>
-<% end %>
+<%
+  count += 1
+end
+%>
+  <tr>
+    <td colspan="6">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="6" align="right"><%= link_to 'Cadastrar Nova Alimentação / Valor', new_alimentacao_valor_path %></td>
+  </tr>
 </table>
 
 <br />
-
-<%= link_to 'New alimentacao_valor', new_alimentacao_valor_path %>

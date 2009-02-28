@@ -3,12 +3,10 @@
 <% form_for(@aluno) do |f| %>
   <%= f.error_messages %>
 
-<table border="0" cellpadding="2" cellspacing="0" width="700" align="center">
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
   <tr>
     <td align="right">
-      <p>
         <%= link_to 'Detalhes', @aluno %> | <%= link_to 'Voltar', alunos_path %>
-      </p>
     </td>
   </tr>
 </table>
@@ -26,13 +24,13 @@
     <td>
         <%= f.label 'Período' %><br />
         <% @periodos.each do |t| %>
-          <%= f.radio_button :periodo_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.periodo %>
+          <%= f.radio_button :periodo_id, t.id, :checked => t.id == @aluno.periodo_id ? true : false %> <%= t.periodo %>
         <% end %>
     </td>
     <td>
         <%= f.label 'Alimentação' %><br />
         <% @alimentacoes.each do |t| %>
-          <%= f.radio_button :alimentacao_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.alimentacao %>
+          <%= f.radio_button :alimentacao_id, t.id, :checked => t.id == @aluno.alimentacao_id ? true : false %> <%= t.alimentacao %>
         <% end %>
     </td>
   </tr>
@@ -235,19 +233,15 @@
     </td>
   </tr>
 </table>
-<table border="0" cellpadding="2" cellspacing="0" width="700" align="center">
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
   <tr>
     <td>
-      <p>
         <%= f.submit "Alterar" %>
-      </p>
     </td>
   </tr>
   <tr>
     <td align="right">
-      <p>
         <%= link_to 'Detalhes', @aluno %> | <%= link_to 'Voltar', alunos_path %>
-      </p>
     </td>
   </tr>
 </table>

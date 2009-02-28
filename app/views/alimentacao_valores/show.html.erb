@@ -1,18 +1,40 @@
-<p>
-  <b>Alimentacao:</b>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+     <%= link_to 'Alterar', edit_alimentacao_valor_path(@alimentacao_valor) %> | <%= link_to 'Voltar', alimentacao_valores_path %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td colspan="3">
+     <span class="tit_form">Dados da Alimentação / Valor</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Alimentação:<br />
   <%=h @alimentacao_valor.alimentacao.alimentacao %>
-</p>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Valor:<br />
+      R$ <%=h @alimentacao_valor.valor.real %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Data Vigor:<br />
+      <%=h @alimentacao_valor.data_vigor.strftime("%d/%m/%Y") %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+     <%= link_to 'Alterar', edit_alimentacao_valor_path(@alimentacao_valor) %> | <%= link_to 'Voltar', alimentacao_valores_path %>
+    </td>
+  </tr>
+</table>
 
-<p>
-  <b>Valor:</b>
-  <%=h @alimentacao_valor.valor %>
-</p>
-
-<p>
-  <b>Data vigor:</b>
-  <%=h @alimentacao_valor.data_vigor.strftime("%d/%m/%Y") %>
-</p>
-
-
-<%= link_to 'Edit', edit_alimentacao_valor_path(@alimentacao_valor) %> |
-<%= link_to 'Back', alimentacao_valores_path %>

@@ -1,18 +1,39 @@
-<p>
-  <b>Valor:</b>
-  <%=h @mensalidade.valor %>
-</p>
-
-<p>
-  <b>Data vigor:</b>
-  <%=h @mensalidade.data_vigor.strftime("%d/%m/%Y") %>
-</p>
-
-<p>
-  <b>Periodo:</b>
-  <%=h @mensalidade.periodo.periodo %>
-</p>
-
-
-<%= link_to 'Edit', edit_mensalidade_path(@mensalidade) %> |
-<%= link_to 'Back', mensalidades_path %>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+     <%= link_to 'Alterar', edit_mensalidade_path(@mensalidade) %> | <%= link_to 'Voltar', mensalidades_path %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td colspan="3">
+     <span class="tit_form">Dados da Mensalidade</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Período:<br />
+      <%=h @mensalidade.periodo.periodo %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Valor:<br />
+      R$ <%=h @mensalidade.valor.real %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Data Vigor:<br />
+      <%=h @mensalidade.data_vigor.strftime("%d/%m/%Y") %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+     <%= link_to 'Alterar', edit_mensalidade_path(@mensalidade) %> | <%= link_to 'Voltar', mensalidades_path %>
+    </td>
+  </tr>
+</table>
