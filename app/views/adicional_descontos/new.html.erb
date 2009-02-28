@@ -1,33 +1,66 @@
-<h1>New adicional_desconto</h1>
+<h1>Novo Adicional ou Desconto</h1>
 
 <% form_for(@adicional_desconto) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :adicional_desconto_tipo %><br />
-    <% @adicional_desconto_tipos.each do |t| %>
-      <%= f.radio_button :adicional_desconto_tipo_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.tipo %>
-    <% end %>
-  </p>
-  <p>
-    <%= f.label :aluno %><br />
-    <%= f.text_field :aluno_id %>
-  </p>
-  <p>
-    <%= f.label :valor %><br />
-    <%= f.text_field :valor %>
-  </p>
-  <p>
-    <%= f.label :data_vigor %><br />
-    <%= f.date_select :data_vigor, :order => [:day, :month, :year] %>
-  </p>
-  <p>
-    <%= f.label :descricao %><br />
-    <%= f.text_area :descricao %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+        <%= link_to 'Voltar', adicional_descontos_path %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td colspan="3">
+     <span class="tit_form">Dados do Adicional ou Desconto</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label 'Tipo' %><br />
+      <% @adicional_desconto_tipos.each do |t| %>
+        <%= f.radio_button :adicional_desconto_tipo_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.tipo %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label 'RA' %><br />
+      <%= text_field :aluno, :ra, :onchange => remote_function(:url => { :action => :find_by_ra },  :with => "'ra='+value"), :size => 10 %>
+      <%= f.hidden_field :aluno_id %><%= text_field :aluno, :nome, :disabled => true %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :valor %><br />
+      <%= f.text_field :valor, :size => 10 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :data_vigor %><br />
+      <%= f.date_select :data_vigor, :order => [:day, :month, :year] %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :descricao %><br />
+      <%= f.text_area :descricao, :rows => 5, :cols => 30 %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td>
+        <%= f.submit "Salvar" %>
+    </td>
+  </tr>
+  <tr>
+    <td align="right">
+        <%= link_to 'Voltar', adicional_descontos_path %>
+    </td>
+  </tr>
+</table>
 
-<%= link_to 'Back', adicional_descontos_path %>
+<% end %>

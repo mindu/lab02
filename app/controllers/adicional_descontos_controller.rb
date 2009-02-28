@@ -10,6 +10,16 @@ class AdicionalDescontosController < ApplicationController
     end
   end
 
+  def find_by_ra
+    @aluno = Aluno.find(:first, :conditions => ["ra = ?", params[:ra]])
+
+    if @aluno == nil
+      @aluno = Aluno.new
+    end
+
+    render :layout => false
+  end
+
   # GET /adicional_descontos/1
   # GET /adicional_descontos/1.xml
   def show
@@ -37,6 +47,7 @@ class AdicionalDescontosController < ApplicationController
   def edit
     @adicional_desconto = AdicionalDesconto.find(params[:id])
     @adicional_desconto_tipos = AdicionalDescontoTipo.find(:all)
+    @aluno = Aluno.find(@adicional_desconto.aluno_id)
   end
 
   # POST /adicional_descontos

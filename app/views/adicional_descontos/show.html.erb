@@ -1,28 +1,51 @@
-<p>
-  <b>Adicional desconto tipo:</b>
-  <%=h @adicional_desconto.adicional_desconto_tipo.tipo %>
-</p>
-
-<p>
-  <b>Valor:</b>
-  <%=h @adicional_desconto.valor.real %>
-</p>
-
-<p>
-  <b>Aluno:</b>
-  <%=h @adicional_desconto.aluno.nome %>
-</p>
-
-<p>
-  <b>Data vigor:</b>
-  <%=h @adicional_desconto.data_vigor.strftime("%d/%m/%Y") %>
-</p>
-
-<p>
-  <b>Descricao:</b>
-  <%=h @adicional_desconto.descricao %>
-</p>
-
-
-<%= link_to 'Edit', edit_adicional_desconto_path(@adicional_desconto) %> |
-<%= link_to 'Back', adicional_descontos_path %>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+     <%= link_to 'Alterar', edit_adicional_desconto_path(@adicional_desconto) %> | <%= link_to 'Voltar', adicional_descontos_path %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td colspan="3">
+     <span class="tit_form">Dados do Adicional ou Desconto</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Tipo:<br/>
+      <%=h @adicional_desconto.adicional_desconto_tipo.tipo %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Valor:<br />
+      R$ <%=h @adicional_desconto.valor.real %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Aluno:<br />
+      <%=h @adicional_desconto.aluno.nome %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Data Vigor:<br />
+      <%=h @adicional_desconto.data_vigor.strftime("%d/%m/%Y") %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Descrição:<br />
+      <%=h @adicional_desconto.descricao %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+     <%= link_to 'Alterar', edit_adicional_desconto_path(@adicional_desconto) %> | <%= link_to 'Voltar', adicional_descontos_path %>
+    </td>
+  </tr>
+</table>
