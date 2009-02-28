@@ -13,18 +13,6 @@
   </tr>
   <tr>
     <td>
-      Tipo:<br/>
-      <%=h @adicional_desconto.adicional_desconto_tipo.tipo %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Valor:<br />
-      R$ <%=h @adicional_desconto.valor.real %>
-    </td>
-  </tr>
-  <tr>
-    <td>
       Aluno:<br />
       <%=h @adicional_desconto.aluno.nome %>
     </td>
@@ -33,6 +21,18 @@
     <td>
       Data Vigor:<br />
       <%=h @adicional_desconto.data_vigor.strftime("%d/%m/%Y") %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Tipo:<br/>
+      <%=h @adicional_desconto.adicional_desconto_tipo.tipo %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Valor:<br />
+      R$ <%=h @adicional_desconto.valor.real %>
     </td>
   </tr>
   <tr>

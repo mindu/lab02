@@ -1,28 +1,58 @@
-<h1>New lancamento</h1>
+<h1>Novo Lançamento</h1>
 
 <% form_for(@lancamento) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label 'RA' %><br />
-    <%= text_field :aluno, :ra, :onchange => remote_function(:url => { :action => :find_by_ra },  :with => "'ra='+value") %>
-    <%= f.hidden_field :aluno_id %><%= text_field :aluno, :nome, :disabled => true %>
-  </p>
-  <p>
-    <%= f.label :descricao %><br />
-    <%= f.text_field :descricao %>
-  </p>
-  <p>
-    <%= f.label :valor %><br />
-    <%= f.text_field :valor %>
-  </p>
-  <p>
-    <%= f.label :data %><br />
-    <%= f.date_select :data, :order => [:month, :year] %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+        <%= link_to 'Voltar', lancamentos_path %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td colspan="3">
+     <span class="tit_form">Dados do Lançamento</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label 'RA' %><br />
+      <%= text_field :aluno, :ra, :onchange => remote_function(:url => { :action => :find_by_ra },  :with => "'ra='+value"), :size => 10 %>
+      <%= f.hidden_field :aluno_id %><%= text_field :aluno, :nome, :disabled => true %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :valor %><br />
+      <%= f.text_field :valor, :size => 10 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label 'Data' %><br />
+      <%= f.date_select :data, :order => [:day, :month, :year] %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= f.label :descricao %><br />
+      <%= f.text_field :descricao %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td>
+        <%= f.submit "Salvar" %>
+    </td>
+  </tr>
+  <tr>
+    <td align="right">
+        <%= link_to 'Voltar', lancamentos_path %>
+    </td>
+  </tr>
+</table>
 
-<%= link_to 'Back', lancamentos_path %>
+<% end %>

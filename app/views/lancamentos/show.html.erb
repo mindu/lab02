@@ -1,23 +1,45 @@
-<p>
-  <b>Aluno:</b>
-  <%=h @lancamento.aluno.nome %>
-</p>
-
-<p>
-  <b>Descricao:</b>
-  <%=h @lancamento.descricao %>
-</p>
-
-<p>
-  <b>Valor:</b>
-  <%=h @lancamento.valor.real %>
-</p>
-
-<p>
-  <b>Data:</b>
-  <%=h @lancamento.data.strftime("%d/%m/%Y") %>
-</p>
-
-
-<%= link_to 'Edit', edit_lancamento_path(@lancamento) %> |
-<%= link_to 'Back', lancamentos_path %>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+     <%= link_to 'Alterar', edit_lancamento_path(@lancamento) %> | <%= link_to 'Voltar', lancamentos_path %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
+  <tr>
+    <td colspan="3">
+     <span class="tit_form">Dados do Lançamento</span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Aluno:<br />
+      <%=h @lancamento.aluno.nome %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Data:<br />
+      <%=h @lancamento.data.strftime("%d/%m/%Y") %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Valor:<br />
+      R$ <%=h @lancamento.valor.real %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      Descrição:<br />
+      <%=h @lancamento.descricao %>
+    </td>
+  </tr>
+</table>
+<table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
+  <tr>
+    <td align="right">
+     <%= link_to 'Alterar', edit_lancamento_path(@lancamento) %> | <%= link_to 'Voltar', lancamentos_path %>
+    </td>
+  </tr>
+</table>
