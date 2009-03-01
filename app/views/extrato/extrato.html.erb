@@ -1,34 +1,48 @@
-<% for extrato in @extratos %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<table border="1" align="center" width="500">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Alunos: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'extrato' %>
+  <%= javascript_include_tag :defaults %>
+  <STYLE TYPE="text/css">
+    P.quebra-aqui {page-break-before: always}
+  </STYLE>
+</head>
+<body>
+
+<% count = 1
+   for extrato in @extratos %>
+
+<table border="0" align="center" width="500" class="tabela_extrato">
         <tr>
                 <td>
-                        <table width="100%" border="0">
+                        <table width="100%" border="0" cellpadding="2" cellspacing="0">
                                 <tr>
-                                        <td width="50%" height="50" valign="middle" align="center"> logo aqui </td>
+                                        <td width="20%"  valign="middle" align="center" rowspan="2"><img src="/images/estrelinha_logo_extrato.gif"> </td>
                                         <td valign="middle" align="center"><b>Extrato Mensal para Pagamento</b></td>
+                                </tr>
+                                <tr>
+                                        <td valign="middle" align="center"><span class="aviso_multa">Multa de 10% após o vencimento</span></td>
                                 </tr>
                         </table>
                 </td>
         </tr>
         <tr>
-                <td align="center">
-                        <b>Multa de 10% após a data de vencimento</b>
-                </td>
-        </tr>
-        <tr>
                 <td>
-                        <table width="100%" border="0">
+                  <table width="100%" border="0" cellpadding="2" cellspacing="0" class="tabela_aluno">
                                 <tr>
                                         <td width="70" align="right">RA:</td>
                                         <td><b><%= extrato.ra %></b></td>
                                 </tr>
                                 <tr>
-                                        <td width="70" align="right">nome:</td>
+                                        <td width="70" align="right">Nome:</td>
                                         <td><b><%= extrato.nome %></b></td>
                                 </tr>
                                 <tr align="right">
-                                        <td colspan="2"><b>vencimento: <%= extrato.vencimento.strftime("%d/%m/%Y") %></b></td>
+                                  <td colspan="2"><span class="aviso_vencimento">Vencimento: <%= extrato.vencimento.strftime("%d/%m/%Y") %></span></td>
                                 </tr>
                         </table>
                 </td>
@@ -37,15 +51,15 @@
                 <td>
                         <table width="100%" border="0">
                                 <tr>
-                                        <td width="50%" align="left">mensalidade</td>
+                                        <td width="50%" align="left">Mensalidade</td>
                                         <td align="right"><%= extrato.mensalidade.real %></td>
                                 </tr>
                                 <tr>
-                                        <td width="50%" align="left">refeição</td>
+                                        <td width="50%" align="left">Refeição</td>
                                         <td align="right"><%= extrato.refeicao.real %></td>
                                 </tr>
                                 <tr>
-                                        <td width="50%" align="left">taxa</td>
+                                        <td width="50%" align="left">Taxas</td>
                                         <td align="right"><%= extrato.taxa.real %></td>
                                 </tr>
                                 <tr align="right">
@@ -57,10 +71,22 @@
                         </table>
                 </td>
         </tr>
+        <% if extrato.taxa_desc != '' %>
         <tr>
-                <td>Obs taxa: <%= extrato.taxa_desc %> </td>
+                <td>Descrição das Taxas: <%= extrato.taxa_desc %> </td>
         </tr>
+        <% end %>
 </table>
-<br>
+ <%= (count  == 3) ? '<p class="quebra-aqui">&nbsp;</p>' : '&nbsp;' %>
 
-<% end %>
+<%
+  if (count == 3)
+    count = 1
+  else
+    count = count + 1
+  end
+end
+ %>
+
+</body>
+</html>

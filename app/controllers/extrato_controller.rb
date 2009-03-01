@@ -1,9 +1,10 @@
 class ExtratoController < ApplicationController
+
   def index
+   # render :layout => 'application'
   end
 
   def extrato
-    puts 'extrato aqui !!'
 
     nivel = params[:extrato][:nivel]
     vencimento = convert_date(params[:data_vencimento])
@@ -59,7 +60,7 @@ class ExtratoController < ApplicationController
 
     end
 
-     render :layout => false
+    render :layout => false
 
   end
   def convert_date(obj)

@@ -1,0 +1,27 @@
+@CHARSET "ISO-8859-1";
+
+body {
+  background-color: #FFFFFF;
+  color: #000000;
+  font-size: 11px;
+  font-family: Verdana, Geneva, Lucida, Helvetica, sans-serif;
+  font-weight: normal;
+  margin: 10;
+  padding: 10;
+}
+
+.tabela_extrato{
+	border: 1px solid #000000
+}
+.tabela_aluno{
+	border-bottom: 1px dashed #000000;
+	border-top: 1px dashed #000000;
+}
+.aviso_multa{
+	font-style: italic;
+	font-size: 12px;
+}
+.aviso_vencimento{
+	font-weight:bold;
+	font-size: 12px;
+}
