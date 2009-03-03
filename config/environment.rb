@@ -68,4 +68,5 @@ Rails::Initializer.run do |config|
 end
 require 'brazilian-rails'
 require 'brtraducao/inflector_portuguese'
+require 'will_paginate'
 

@@ -3,7 +3,7 @@ class AlunosController < ApplicationController
   # GET /alunos.xml
 
   def index
-    @alunos = Aluno.find(:all)
+    @alunos = Aluno.paginate :page => params[:page], :order => 'created_at DESC', :per_page => 20
 
     respond_to do |format|
       format.html # index.html.erb
