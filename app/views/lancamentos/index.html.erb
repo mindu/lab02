@@ -46,6 +46,11 @@ end
   <tr>
     <td colspan="7">&nbsp;</td>
   </tr>
+<% if will_paginate != nil %>
+  <tr>
+    <td colspan="7" align="center" style="background-color: #F1EEE4"><%= will_paginate @lancamentos,  options = { :prev_label => "anterior", :next_label => "próximo"} %></td>
+  </tr>
+<% end %>
   <tr>
     <td colspan="7" align="right"><%= link_to 'Cadastrar Novo Lançamento', new_lancamento_path %></td>
   </tr>

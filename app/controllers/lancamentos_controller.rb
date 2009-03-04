@@ -110,9 +110,9 @@ end
   def list(data)
 
     if data
-     @lancamentos = Lancamento.find(:all, :conditions => ["data between ? and ?", data.beginning_of_month, data.end_of_month])
+     @lancamentos = Lancamento.paginate :page => params[:page], :conditions => ["data between ? and ?", data.beginning_of_month, data.end_of_month], :per_page => 20
     else
-      @lancamentos = Lancamento.find(:all, :conditions => ["data between ? and ?", Date.current.beginning_of_month, Date.current.end_of_month])
+     @lancamentos = Lancamento.paginate :page => params[:page], :conditions => ["data between ? and ?", Date.current.beginning_of_month, Date.current.end_of_month], :per_page => 20
     end
   end
 end

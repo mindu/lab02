@@ -33,9 +33,11 @@ end
   <tr>
     <td colspan="6" align="center">&nbsp;</td>
   </tr>
+<% if will_paginate != nil %>
   <tr>
     <td colspan="6" align="center" style="background-color: #F1EEE4"><%= will_paginate @alunos,  options = { :prev_label => "anterior", :next_label => "próximo"} %></td>
   </tr>
+<% end %>
   <tr>
     <td colspan="6" align="right"><%= link_to 'Cadastrar Novo Aluno', new_aluno_path %></td>
   </tr>
