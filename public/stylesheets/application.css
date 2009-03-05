@@ -124,3 +124,12 @@ label {
     font-weight:bold;
     text-decoration:underline;
 }
+.w14{
+    font-size:14px;
+}
+.texto_bold {
+        font-weight: bold;
+}
+.texto_contrato{
+    margin-left: 5px;
+}

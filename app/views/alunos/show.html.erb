@@ -1,109 +1,124 @@
 <table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
   <tr>
-    <td align="right">
-        <%= link_to 'Alterar', edit_aluno_path(@aluno) %> | <%= link_to 'Voltar', alunos_path %>
+    <td width="10%">
+      <img src="/images/estrelinha_logo_contrato.gif">
+    </td>
+    <td align="center">
+     <span class="texto_bold w14">Ficha de Matrícula</span>
+    </td>
+    <td width="10%">
+      <img src="/images/estrelinha_logo_contrato.gif">
     </td>
   </tr>
 </table>
 <table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
   <tr>
-    <td colspan="2">
+    <td>
      <span class="tit_form">Dados do Aluno</span>
+    </td>
+    <td align="right">
+     <span class="texto_bold"><%= Date.current.strftime("%d/%m/%Y")%></span>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      RA:<br />
+      <span class="texto_contrato texto_bold"><%= @aluno.ra %></span>
     </td>
   </tr>
   <tr>
     <td colspan="2">
       Nome:<br />
-      <%= @aluno.nome %>
+      <span class="texto_contrato texto_bold"><%= @aluno.nome %></span>
     </td>
   </tr>
   <tr>
     <td colspan="2">
       RG:<br />
-      <%= @aluno.rg %>
+     <span class="texto_contrato texto_bold"> <%= @aluno.rg %></span>
     </td>
   </tr>
   <tr>
-    <td>
+    <td width="50%">
      Data Nascimento:<br />
-     <%= @aluno.data_nascimento.strftime("%d/%m/%Y") %>
+     <span class="texto_contrato texto_bold"><%= @aluno.data_nascimento.strftime("%d/%m/%Y") %></span>
     </td>
     <td>
       Sexo:<br />
-      <%= @aluno.sexo %>
+      <span class="texto_contrato texto_bold"><%= @aluno.sexo %></span>
     </td>
   </tr>
   <tr>
     <td>
       Endereço:<br />
-      <%= @aluno.endereco %>
+      <span class="texto_contrato texto_bold"><%= @aluno.endereco %></span>
     </td>
     <td>
       Número:<br />
-      <%= @aluno.numero %>
+      <span class="texto_contrato texto_bold"><%= @aluno.numero %></span>
     </td>
   </tr>
   <tr>
     <td colspan="2">
       Complemento:<br />
-      <%= @aluno.complemento %>
+      <span class="texto_contrato texto_bold"><%= @aluno.complemento %></span>
     </td>
   </tr>
   <tr>
     <td>
       Bairro:<br />
-      <%= @aluno.bairro %>
+      <span class="texto_contrato texto_bold"><%= @aluno.bairro %></span>
     </td>
     <td>
       CEP:<br />
-      <%= @aluno.cep %>
+      <span class="texto_contrato texto_bold"><%= @aluno.cep %></span>
     </td>
   </tr>
   <tr>
     <td colspan="2">
       Telefone:<br />
-      <%= @aluno.telefone %>
+      <span class="texto_contrato texto_bold"><%= @aluno.telefone %></span>
     </td>
   </tr>
 </table>
 <br/>
 <table border="0" cellpadding="2" cellspacing="2" width="700" align="center" class="form_table">
   <tr>
-    <td>
+    <td width="50%">
      <span class="tit_form">Dados do Pai</span>
         <table border="0" width="100%">
           <tr>
             <td colspan="2">
               Nome: <br />
-              <%= @aluno.nome_pai %>
+              <span class="texto_contrato texto_bold"><%= @aluno.nome_pai %></span>
             </td>
           </tr>
           <tr>
             <td colspan="2">
               Data Nascimento:<br />
-               <%= @aluno.data_nascimento_pai.strftime("%d/%m/%Y") %>
+               <span class="texto_contrato texto_bold"><%= @aluno.data_nascimento_pai.strftime("%d/%m/%Y") %></span>
             </td>
           </tr>
           <tr>
             <td>
               CIC:<br />
-              <%= @aluno.cic_pai %>
+             <span class="texto_contrato texto_bold"><%= @aluno.cic_pai %></span>
             </td>
             <td>
               RG:<br />
-              <%= @aluno.rg_pai %>
+              <span class="texto_contrato texto_bold"><%= @aluno.rg_pai %></span>
             </td>
           </tr>
           <tr>
             <td colspan="2">
               Local Trabalho:<br />
-              <%= @aluno.local_trabalho_pai %>
+              <span class="texto_contrato texto_bold"><%= @aluno.local_trabalho_pai %></span>
             </td>
           </tr>
           <tr>
             <td colspan="2">
               Telefone:<br />
-              <%= @aluno.telefone_trabalho_pai %>
+              <span class="texto_contrato texto_bold"><%= @aluno.telefone_trabalho_pai %></span>
             </td>
           </tr>
         </table>
@@ -114,35 +129,35 @@
           <tr>
             <td colspan="2">
               Nome:<br />
-              <%= @aluno.nome_mae %>
+              <span class="texto_contrato texto_bold"><%= @aluno.nome_mae %></span>
             </td>
           </tr>
           <tr>
             <td colspan="2">
               Data Nascimento:<br />
-               <%= @aluno.data_nascimento_mae.strftime("%d/%m/%Y") %>
+               <span class="texto_contrato texto_bold"><%= @aluno.data_nascimento_mae.strftime("%d/%m/%Y") %></span>
             </td>
           </tr>
           <tr>
             <td>
               CIC:<br />
-              <%= @aluno.cic_mae %>
+              <span class="texto_contrato texto_bold"><%= @aluno.cic_mae %></span>
             </td>
             <td>
               RG:<br />
-               <%= @aluno.rg_mae %>
+               <span class="texto_contrato texto_bold"><%= @aluno.rg_mae %></span>
             </td>
           </tr>
          <tr>
             <td colspan="2">
               Local Trabalho:<br />
-              <%= @aluno.local_trabalho_mae %>
+              <span class="texto_contrato texto_bold"><%= @aluno.local_trabalho_mae %></span>
             </td>
           </tr>
           <tr>
             <td colspan="2">
               Telefone:<br />
-              <%= @aluno.telefone_trabalho_mae %>
+              <span class="texto_contrato texto_bold"><%= @aluno.telefone_trabalho_mae %></span>
             </td>
           </tr>
         </table>
@@ -157,23 +172,23 @@
     </td>
   </tr>
   <tr>
-    <td>
+    <td width="50%">
       Pediatra:<br />
-      <%= @aluno.nome_pediatra %>
+      <span class="texto_contrato texto_bold"><%= @aluno.nome_pediatra %></span>
     </td>
     <td>
       Telefone:<br />
-      <%= @aluno.telefone_pediatra %>
+      <span class="texto_contrato texto_bold"><%= @aluno.telefone_pediatra %></span>
     </td>
   </tr>
   <tr>
     <td>
       Alergias:<br />
-      <%= @aluno.alergias %>
+      <span class="texto_contrato texto_bold"><%= @aluno.alergias %></span>
     </td>
     <td>
       Tratamento médico:<br />
-      <%= @aluno.tratamento_medico %>
+      <span class="texto_contrato texto_bold"><%= @aluno.tratamento_medico %></span>
     </td>
   </tr>
 </table>
@@ -185,20 +200,32 @@
     </td>
   </tr>
   <tr>
-    <td>
+    <td width="50%">
       Pessoas Autorizadas:<br />
-      <%= @aluno.pessoas_autorizadas %>
+      <span class="texto_contrato texto_bold"><%= @aluno.pessoas_autorizadas %></span>
     </td>
     <td>
       Observação:<br />
-      <%= @aluno.observacao %>
+      <span class="texto_contrato texto_bold"><%= @aluno.observacao %></span>
     </td>
   </tr>
 </table>
 <table border="0" cellpadding="2" cellspacing="2" width="700" align="center">
   <tr>
-    <td align="right">
-        <%= link_to 'Alterar', edit_aluno_path(@aluno) %> | <%= link_to 'Voltar', alunos_path %>
+    <td width="30%" align="center" valign="bottom">
+      .............................................
+      <br/>
+      Assinatura da Mãe
+    </td>
+    <td align="center">
+      <img src="/images/estrelinha_logo_contrato.gif">
+    </td>
+    <td width="30%" align="center" valign="bottom">
+      .............................................
+      <br/>
+      Assinatura do Pai
     </td>
   </tr>
 </table>
+<br/>
+<br/>

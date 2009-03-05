@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class AlunosController < ApplicationController
   # GET /alunos
   # GET /alunos.xml
@@ -17,7 +18,7 @@ class AlunosController < ApplicationController
     @aluno = Aluno.find(params[:id])
 
     respond_to do |format|
-      format.html {render :layout => true} # show.html.erb
+      format.html {render :layout => 'contrato'} # show.html.erb
       format.xml  { render :xml => @aluno }
     end
   end
@@ -49,8 +50,9 @@ class AlunosController < ApplicationController
 
     respond_to do |format|
       if @aluno.save
-        flash[:notice] = 'Aluno was successfully created.'
-        format.html { redirect_to(@aluno) }
+        flash[:notice] = 'Aluno cadastrado com sucesso.'
+        #format.html { redirect_to(@aluno) }
+        format.html { redirect_to(alunos_path) }
         format.xml  { render :xml => @aluno, :status => :created, :location => @aluno }
       else
         format.html { render :action => "new" }
@@ -66,8 +68,9 @@ class AlunosController < ApplicationController
 
     respond_to do |format|
       if @aluno.update_attributes(params[:aluno])
-        flash[:notice] = 'Aluno was successfully updated.'
-        format.html { redirect_to(@aluno) }
+        flash[:notice] = 'Aluno alterado com sucesso.'
+        #format.html { redirect_to(@aluno) }
+        format.html { redirect_to(alunos_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -83,6 +86,7 @@ class AlunosController < ApplicationController
     @aluno.destroy
 
     respond_to do |format|
+      flash[:notice] = 'Aluno excluído com sucesso.'
       format.html { redirect_to(alunos_url) }
       format.xml  { head :ok }
     end

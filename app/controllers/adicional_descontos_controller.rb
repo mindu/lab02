@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class AdicionalDescontosController < ApplicationController
   # GET /adicional_descontos
   # GET /adicional_descontos.xml
@@ -57,8 +58,9 @@ class AdicionalDescontosController < ApplicationController
 
     respond_to do |format|
       if @adicional_desconto.save
-        flash[:notice] = 'AdicionalDesconto was successfully created.'
-        format.html { redirect_to(@adicional_desconto) }
+        flash[:notice] = 'Adicional / Desconto cadastrado com sucesso.'
+        #format.html { redirect_to(@adicional_desconto) }
+        format.html { redirect_to(adicional_descontos_path) }
         format.xml  { render :xml => @adicional_desconto, :status => :created, :location => @adicional_desconto }
       else
         format.html { render :action => "new" }
@@ -74,8 +76,9 @@ class AdicionalDescontosController < ApplicationController
 
     respond_to do |format|
       if @adicional_desconto.update_attributes(params[:adicional_desconto])
-        flash[:notice] = 'AdicionalDesconto was successfully updated.'
-        format.html { redirect_to(@adicional_desconto) }
+        flash[:notice] = 'Adicional / Desconto alterado com sucesso.'
+        #format.html { redirect_to(@adicional_desconto) }
+        format.html { redirect_to(adicional_descontos_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -91,7 +94,9 @@ class AdicionalDescontosController < ApplicationController
     @adicional_desconto.destroy
 
     respond_to do |format|
-      format.html { redirect_to(adicional_descontos_url) }
+      flash[:notice] = 'Adicional / Desconto excluído com sucesso.'
+      #format.html { redirect_to(adicional_descontos_url) }
+      format.html { redirect_to(adicional_descontos_path) }
       format.xml  { head :ok }
     end
   end

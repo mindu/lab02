@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class MensalidadesController < ApplicationController
   # GET /mensalidades
   # GET /mensalidades.xml
@@ -46,8 +47,9 @@ class MensalidadesController < ApplicationController
 
     respond_to do |format|
       if @mensalidade.save
-        flash[:notice] = 'Mensalidade was successfully created.'
-        format.html { redirect_to(@mensalidade) }
+        flash[:notice] = 'Mensalidade cadastrada com sucesso.'
+        #format.html { redirect_to(@mensalidade) }
+        format.html { redirect_to(mensalidades_path) }
         format.xml  { render :xml => @mensalidade, :status => :created, :location => @mensalidade }
       else
         format.html { render :action => "new" }
@@ -63,8 +65,9 @@ class MensalidadesController < ApplicationController
 
     respond_to do |format|
       if @mensalidade.update_attributes(params[:mensalidade])
-        flash[:notice] = 'Mensalidade was successfully updated.'
-        format.html { redirect_to(@mensalidade) }
+        flash[:notice] = 'Mensalidade alterada com sucesso.'
+        #format.html { redirect_to(@mensalidade) }
+        format.html { redirect_to(mensalidades_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -80,6 +83,7 @@ class MensalidadesController < ApplicationController
     @mensalidade.destroy
 
     respond_to do |format|
+      flash[:notice] = 'Mensalidade excluída com sucesso.'
       format.html { redirect_to(mensalidades_url) }
       format.xml  { head :ok }
     end

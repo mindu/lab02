@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class LancamentosController < ApplicationController
   # GET /lancamentos
   # GET /lancamentos.xml
@@ -64,8 +65,9 @@ class LancamentosController < ApplicationController
 
     respond_to do |format|
       if @lancamento.save
-        flash[:notice] = 'Lancamento was successfully created.'
-        format.html { redirect_to(@lancamento) }
+        flash[:notice] = 'Lançamento cadastrado com sucesso.'
+        #format.html { redirect_to(@lancamento) }
+        format.html { redirect_to(lancamentos_path) }
         format.xml  { render :xml => @lancamento, :status => :created, :location => @lancamento }
       else
         format.html { render :action => "new" }
@@ -81,8 +83,9 @@ class LancamentosController < ApplicationController
 
     respond_to do |format|
       if @lancamento.update_attributes(params[:lancamento])
-        flash[:notice] = 'Lancamento was successfully updated.'
-        format.html { redirect_to(@lancamento) }
+        flash[:notice] = 'Lançamento alterado com sucesso.'
+        #format.html { redirect_to(@lancamento) }
+        format.html { redirect_to(lancamentos_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -98,7 +101,9 @@ class LancamentosController < ApplicationController
     @lancamento.destroy
 
     respond_to do |format|
-      format.html { redirect_to(lancamentos_url) }
+      flash[:notice] = 'Lançamento excluído com sucesso.'
+      #format.html { redirect_to(lancamentos_url) }
+      format.html { redirect_to(lancamentos_path) }
       format.xml  { head :ok }
     end
   end

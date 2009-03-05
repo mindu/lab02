@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class AlimentacaoValoresController < ApplicationController
   # GET /alimentacao_valores
   # GET /alimentacao_valores.xml
@@ -46,8 +47,9 @@ class AlimentacaoValoresController < ApplicationController
 
     respond_to do |format|
       if @alimentacao_valor.save
-        flash[:notice] = 'AlimentacaoValor was successfully created.'
-        format.html { redirect_to(@alimentacao_valor) }
+        flash[:notice] = 'Alimentação cadastrada com sucesso.'
+        #format.html { redirect_to(@alimentacao_valor) }
+        format.html { redirect_to(alimentacao_valores_path) }
         format.xml  { render :xml => @alimentacao_valor, :status => :created, :location => @alimentacao_valor }
       else
         format.html { render :action => "new" }
@@ -63,8 +65,9 @@ class AlimentacaoValoresController < ApplicationController
 
     respond_to do |format|
       if @alimentacao_valor.update_attributes(params[:alimentacao_valor])
-        flash[:notice] = 'AlimentacaoValor was successfully updated.'
-        format.html { redirect_to(@alimentacao_valor) }
+        flash[:notice] = 'Alimentação alterada com sucesso.'
+        #format.html { redirect_to(@alimentacao_valor) }
+        format.html { redirect_to(alimentacao_valores_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -80,7 +83,9 @@ class AlimentacaoValoresController < ApplicationController
     @alimentacao_valor.destroy
 
     respond_to do |format|
-      format.html { redirect_to(alimentacao_valores_url) }
+      flash[:notice] = 'Alimentação excluída com sucesso.'
+      #format.html { redirect_to(alimentacao_valores_url) }
+      format.html { redirect_to(alimentacao_valores_path) }
       format.xml  { head :ok }
     end
   end
