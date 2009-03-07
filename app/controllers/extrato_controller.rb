@@ -39,7 +39,12 @@ class ExtratoController < ApplicationController
       end
 
       extrato.mensalidade = mensalidade
-      extrato.refeicao = aluno.alimentacao.alimentacao_valores[0].valor
+
+      if aluno.alimentacao.id == 1
+        extrato.refeicao = 0
+      else
+        extrato.refeicao = aluno.alimentacao.alimentacao_valores[0].valor
+      end
 
       lancamentos = aluno.lancamentos.lancamentos_por_periodo(vencimento)
 

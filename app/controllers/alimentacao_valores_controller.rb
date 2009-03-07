@@ -26,7 +26,7 @@ class AlimentacaoValoresController < ApplicationController
   # GET /alimentacao_valores/new.xml
   def new
     @alimentacao_valor = AlimentacaoValor.new
-    @alimentacoes = Alimentacao.find(:all)
+    @alimentacoes = Alimentacao.find(:all, :conditions => ["id > 1"])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,7 +37,7 @@ class AlimentacaoValoresController < ApplicationController
   # GET /alimentacao_valores/1/edit
   def edit
     @alimentacao_valor = AlimentacaoValor.find(params[:id])
-    @alimentacoes = Alimentacao.find(:all)
+    @alimentacoes = Alimentacao.find(:all, :conditions => ["id > 1"])
   end
 
   # POST /alimentacao_valores

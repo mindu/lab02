@@ -20,7 +20,7 @@
     <td>
       <%= f.label :alimentacao %><br />
       <% @alimentacoes.each do |t| %>
-        <%= f.radio_button :alimentacao_id, t.id, :checked => t.id == 1 ? true : false %> <%= t.alimentacao %>
+        <%= f.radio_button :alimentacao_id, t.id, :checked => t.id == 2 ? true : false %> <%= t.alimentacao %>
       <% end %>
     </td>
   </tr>

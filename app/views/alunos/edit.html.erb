@@ -29,9 +29,7 @@
     </td>
     <td>
         <%= f.label 'Alimentação' %><br />
-        <% @alimentacoes.each do |t| %>
-          <%= f.radio_button :alimentacao_id, t.id, :checked => t.id == @aluno.alimentacao_id ? true : false %> <%= t.alimentacao %>
-        <% end %>
+        <%= f.select :alimentacao_id, @alimentacoes.collect {|p| [ p.alimentacao, p.id ] }  %>
     </td>
   </tr>
   <tr>

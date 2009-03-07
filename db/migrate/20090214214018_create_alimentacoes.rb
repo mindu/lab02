@@ -5,6 +5,7 @@ class CreateAlimentacoes < ActiveRecord::Migration
       t.string :alimentacao
       t.timestamps
     end
+    Alimentacao.create :alimentacao => 'Nenhum'
     Alimentacao.create :alimentacao => 'Almoço'
     Alimentacao.create :alimentacao => 'Almoço e Janta'
   end
