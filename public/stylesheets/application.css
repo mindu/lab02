@@ -29,10 +29,27 @@ a{
   border: 0px solid #000000;
   background-color: #FFFFFF;
  }
-#header_menu {
-    text-align:center;
-    padding: 10px;
+#header_logo{
+    position:relative;
+    width: 160px;
     border: 0px solid #000000;
+    float: left;
+    height: 80px;
+}
+#header_menu {
+    width: 640px;
+    border: 0px solid #000000;
+    float: left;
+    position:relative;
+    height: 80px;
+ }
+#menu_top {
+    height: 40px;
+    border: 0px solid #000000;
+ }
+#menu {
+    border: 0px solid #000000;
+    text-align:center;
  }
 #content {
   border: 0px solid #000000;
